@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "d1-01-intro.html",
+    "href": "d1-01-intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "The idea is this …\nThere would be pre-written code, with explanations of what it does."
+  },
+  {
+    "objectID": "d1-01-intro.html#libraries",
+    "href": "d1-01-intro.html#libraries",
+    "title": "Introduction",
+    "section": "Libraries",
+    "text": "Libraries\nTalk about them.\n\n```{r}\n#| label: setup\n#| message: false\n\nlibrary(tidyverse)\nlibrary(janitor)\n```"
+  },
+  {
+    "objectID": "d1-01-intro.html#importing",
+    "href": "d1-01-intro.html#importing",
+    "title": "Introduction",
+    "section": "Importing",
+    "text": "Importing\nA lot of talk about how this works …\n\ntx &lt;- read_csv(\"data-raw/tx.csv\") |&gt; clean_names()\n\nRows: 94475 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (2): STATION, NAME\ndbl  (7): PRCP, SNOW, SNWD, TAVG, TMAX, TMIN, TOBS\ndate (1): DATE\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ntx |&gt; glimpse()\n\nRows: 94,475\nColumns: 10\n$ station &lt;chr&gt; \"USW00012918\", \"USW00012918\", \"USW00012918\", \"USW00012918\", \"U…\n$ name    &lt;chr&gt; \"HOUSTON WILLIAM P HOBBY AIRPORT, TX US\", \"HOUSTON WILLIAM P H…\n$ date    &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1…\n$ prcp    &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, …\n$ snow    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ snwd    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ tavg    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ tmax    &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97…\n$ tmin    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70…\n$ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…\n\n\nNo OYO for importing since we don’t want to do it twice.\n\nOYO: Import\nInsert a new code block and import the weather data from a different state.\n\nThe challenge here is the page will stop rendering if they get an error, but hopefully we’ll work through that since it will be an issue in any event."
+  },
+  {
+    "objectID": "d1-01-intro.html#select-columns",
+    "href": "d1-01-intro.html#select-columns",
+    "title": "Introduction",
+    "section": "Select columns",
+    "text": "Select columns\nInfo about doing it. Example with Texas.\n\nOYO: Select\nDirections to do on your own with another state."
+  },
+  {
+    "objectID": "p1-intro.html",
+    "href": "p1-intro.html",
+    "title": "Practice Intro",
+    "section": "",
+    "text": "This would be a different data set, and this notebook would ONLY have directions, no pre-written code."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "A note about lessons",
+    "section": "",
+    "text": "A note about lessons\nI think my “include” is not working for this.\nAnd more happen, pretty please."
+  },
+  {
+    "objectID": "slides/01-slide-test.html#can-view-online",
+    "href": "slides/01-slide-test.html#can-view-online",
+    "title": "Slide explainers",
+    "section": "Can view online",
+    "text": "Can view online\nThese slides get published to Docs and we can use them online from Github Pages. Plenty O’ features with Quarto."
+  },
+  {
+    "objectID": "slides/01-slide-test.html#can-also-render-locally",
+    "href": "slides/01-slide-test.html#can-also-render-locally",
+    "title": "Slide explainers",
+    "section": "Can also render locally",
+    "text": "Can also render locally\nStudents have the slides and can render locally, but not at same time as documents."
+  },
+  {
+    "objectID": "slides/01-slide-test.html#dinner",
+    "href": "slides/01-slide-test.html#dinner",
+    "title": "Slide explainers",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "slides/01-slide-test.html#going-to-sleep",
+    "href": "slides/01-slide-test.html#going-to-sleep",
+    "title": "Slide explainers",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\nGet in bed\nCount sheep"
+  },
+  {
+    "objectID": "d1-02-import.html",
+    "href": "d1-02-import.html",
+    "title": "Importing data",
+    "section": "",
+    "text": "Thingy."
+  }
+]
