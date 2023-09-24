@@ -1,0 +1,29 @@
+project:
+  type: website
+
+website:
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Home"
+        contents:
+          - text: About
+            url: index.qmd
+      - section: "Lessons"
+        contents:
+          - lsn-01-intro.qmd
+          - lsn-02-import.qmd
+            
+      - section: "Practice"
+        contents:
+          - pct-01-intro.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
