@@ -4,7 +4,9 @@ title: "Introduction"
 
 The idea is this ...
 
-There would be pre-written code, with explanations of what it does.
+There would be pre-written code, with explanations of what it does. Fellows would work through this notebook, running pre-written code and adding new code of their own in mini "on your own" quests.
+
+Practice is in a different [notebook](p1-intro.qmd).
 
 ## Libraries
 
