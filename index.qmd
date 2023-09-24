@@ -1,5 +1,1 @@
-# A note about lessons
-
-I think my "include" is not working for this.
-
-And more happen, pretty please.
+{{< include README.md >}}
