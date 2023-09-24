@@ -2,6 +2,6 @@
 
 Test from README.
 
-- [To the docs](https://critmcdonald.github.io/chj-test/)
+- [To the first lessson](https://critmcdonald.github.io/chj-test/d1-01-intro.html)
 - [To a slide deck](https://critmcdonald.github.io/chj-test/slides/01-slide-test.html)
 
