@@ -4,21 +4,21 @@
     "href": "d1-01-intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "The idea is this …\nThere would be pre-written code, with explanations of what it does. Fellows would work through this notebook, running pre-written code and adding new code of their own in mini “on your own” quests.\nPractice is in a different notebook."
+    "text": "The idea is this …\nThere would be pre-written code, with explanations of what it does. Fellows would work through this notebook, running pre-written code and adding new code of their own in mini “on your own” quests.\nThey can Render the page as we go along to see how that works.\nPractice is in a different notebook."
   },
   {
     "objectID": "d1-01-intro.html#libraries",
     "href": "d1-01-intro.html#libraries",
     "title": "Introduction",
     "section": "Libraries",
-    "text": "Libraries\nTalk about them.\n\n```{r}\n#| label: setup\n#| message: false\n\nlibrary(tidyverse)\nlibrary(janitor)\n```"
+    "text": "Libraries\nTalk about them. This is fenced to show the chunk options.\n\n```{r}\n#| label: setup\n#| message: false\n\nlibrary(tidyverse)\nlibrary(janitor)\n```\n\n\n\n\n\n\n\nImportant\n\n\n\nThere is no OYO for setting up libraries since we don’t want to do it twice in the same notebook.."
   },
   {
     "objectID": "d1-01-intro.html#importing",
     "href": "d1-01-intro.html#importing",
     "title": "Introduction",
     "section": "Importing",
-    "text": "Importing\nA lot of talk about how this works …\n\ntx &lt;- read_csv(\"data-raw/tx.csv\") |&gt; clean_names()\n\nRows: 94475 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (2): STATION, NAME\ndbl  (7): PRCP, SNOW, SNWD, TAVG, TMAX, TMIN, TOBS\ndate (1): DATE\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ntx |&gt; glimpse()\n\nRows: 94,475\nColumns: 10\n$ station &lt;chr&gt; \"USW00012918\", \"USW00012918\", \"USW00012918\", \"USW00012918\", \"U…\n$ name    &lt;chr&gt; \"HOUSTON WILLIAM P HOBBY AIRPORT, TX US\", \"HOUSTON WILLIAM P H…\n$ date    &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1…\n$ prcp    &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, …\n$ snow    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ snwd    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ tavg    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ tmax    &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97…\n$ tmin    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70…\n$ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…\n\n\nNo OYO for importing since we don’t want to do it twice.\n\nOYO: Import\nInsert a new code block and import the weather data from a different state.\n\nThe challenge here is the page will stop rendering if they get an error, but hopefully we’ll work through that since it will be an issue in any event."
+    "text": "Importing\nA lot of talk about how this works …\n\ntx &lt;- read_csv(\"data-raw/tx.csv\") |&gt; clean_names()\n\nRows: 94475 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (2): STATION, NAME\ndbl  (7): PRCP, SNOW, SNWD, TAVG, TMAX, TMIN, TOBS\ndate (1): DATE\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ntx |&gt; glimpse()\n\nRows: 94,475\nColumns: 10\n$ station &lt;chr&gt; \"USW00012918\", \"USW00012918\", \"USW00012918\", \"USW00012918\", \"U…\n$ name    &lt;chr&gt; \"HOUSTON WILLIAM P HOBBY AIRPORT, TX US\", \"HOUSTON WILLIAM P H…\n$ date    &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1…\n$ prcp    &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, …\n$ snow    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ snwd    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ tavg    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ tmax    &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97…\n$ tmin    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70…\n$ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…\n\n\n\nOYO: Import\nInsert a new code block here and import the weather data from a different state from the data-raw/ folder.\n\nThe challenge here is the page will stop rendering if they get an error, but hopefully we’ll work through that since it will be an issue in any event."
   },
   {
     "objectID": "d1-01-intro.html#select-columns",
