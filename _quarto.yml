@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   sidebar:
@@ -12,12 +13,12 @@ website:
             url: index.qmd
       - section: "Lessons"
         contents:
-          - lsn-01-intro.qmd
-          - lsn-02-import.qmd
+          - d1-01-intro.qmd
+          - d1-02-import.qmd
             
       - section: "Practice"
         contents:
-          - pct-01-intro.qmd
+          - p1-intro.qmd
 
 format:
   html:
