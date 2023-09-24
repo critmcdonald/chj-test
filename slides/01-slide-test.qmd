@@ -1,6 +1,6 @@
 ---
 title: "Slide explainers"
-author: "John Doe"
+author: "CHJ test"
 format: revealjs
 ---
 
