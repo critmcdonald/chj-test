@@ -13,12 +13,12 @@ website:
             url: index.qmd
       - section: "Lessons"
         contents:
-          - d1-01-intro.qmd
-          - d1-02-import.qmd
+          - lessons/d1-01-intro.qmd
+          - lessons/d1-02-import.qmd
             
       - section: "Practice"
         contents:
-          - p1-intro.qmd
+          - practice/p1-intro.qmd
 
 format:
   html:

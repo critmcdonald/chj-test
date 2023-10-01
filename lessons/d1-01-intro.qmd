@@ -34,7 +34,7 @@ There is no OYO for setting up libraries since we don't want to do it twice in t
 A lot of talk about how this works ...
 
 ```{r}
-tx <- read_csv("data-raw/tx.csv") |> clean_names()
+tx <- read_csv("../data-raw/tx.csv") |> clean_names()
 
 tx |> glimpse()
 ```
