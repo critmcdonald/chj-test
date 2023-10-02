@@ -9,37 +9,79 @@
   {
     "objectID": "lessons/d1-02-import.html",
     "href": "lessons/d1-02-import.html",
-    "title": "Importing data",
+    "title": "Importing & Cleaning",
     "section": "",
-    "text": "Thingy."
+    "text": "This second lesson will look more like a traditional data project.\n\nWe’ll talk about libraries and functions\nWe’ll import some data to work with\n\nSome code is pre-written with explanations of what it does. You’ll also write your own code with mini quests.\nFeel free to Render this document using the button above or Cmd-shift-k.\nEvery notebook you start should have a headline and text at the top, like this one, explaining the goal of what you are doing.\nFor this lesson we’ll be using weather data – daily temperature and precipitation readings – to learn about using R and RStudio.\n\n\n\n\n\n\nTip\n\n\n\nWithin a project I typically have one notebook for downloading and cleaning my data, and then another notebook for analyzing my data. There are advantages we don’t have time to get into, but know consistent project organization is important."
   },
   {
-    "objectID": "slides/01-slide-test.html#can-view-online",
-    "href": "slides/01-slide-test.html#can-view-online",
-    "title": "Slide explainers",
-    "section": "Can view online",
-    "text": "Can view online\nThese slides get published to Docs and we can use them online from Github Pages. Plenty O’ features with Quarto."
+    "objectID": "lessons/d1-02-import.html#goals-of-this-lesson",
+    "href": "lessons/d1-02-import.html#goals-of-this-lesson",
+    "title": "Importing & Cleaning",
+    "section": "",
+    "text": "This second lesson will look more like a traditional data project.\n\nWe’ll talk about libraries and functions\nWe’ll import some data to work with\n\nSome code is pre-written with explanations of what it does. You’ll also write your own code with mini quests.\nFeel free to Render this document using the button above or Cmd-shift-k.\nEvery notebook you start should have a headline and text at the top, like this one, explaining the goal of what you are doing.\nFor this lesson we’ll be using weather data – daily temperature and precipitation readings – to learn about using R and RStudio.\n\n\n\n\n\n\nTip\n\n\n\nWithin a project I typically have one notebook for downloading and cleaning my data, and then another notebook for analyzing my data. There are advantages we don’t have time to get into, but know consistent project organization is important."
   },
   {
-    "objectID": "slides/01-slide-test.html#can-also-render-locally",
-    "href": "slides/01-slide-test.html#can-also-render-locally",
-    "title": "Slide explainers",
-    "section": "Can also render locally",
-    "text": "Can also render locally\nStudents have the slides and can render locally, but not at same time as documents."
+    "objectID": "lessons/d1-02-import.html#packages-and-libraries",
+    "href": "lessons/d1-02-import.html#packages-and-libraries",
+    "title": "Importing & Cleaning",
+    "section": "Packages and libraries",
+    "text": "Packages and libraries\nAfter the goals in a notebook, the next thing to have is the libraries you’ll use. While there is a lot of functionality baked into R, users can also write and package pre-written code into libraries. Different libraries have different “functions” that we use to manipulate our data in some way. Learning these functions IS programming.\nWe almost always load the tidyverse library which is actually a collection of libraries, including:\n\nreadr has functions that import and export data\ndplyr functions manipulate data, like sorting and filtering\nstringr helps us work with text\ntidyr helps us shape data for different purposes\nggplot helps us visualize data through charts\n\nWe’ll use functions from all of these libraries, but they come in the one big toolbox, tidyverse.\nHere is how we set up the library, and it is usually the first code chunk you’ll have in your notebook.\n\nlibrary(tidyverse)\n\n\nRun the code block above using either the play button inside your Quarto document, or by placing your cursor in the code chunk and using Cmd-shift-return on your keyboard.\n\nThis code chunk has two special execution options that affect how the code works. You can only see them inside the Quarto notebook; they do not display on the rendered page.\n\nlabel: setup gives this chunk a special name that tells RStudio to run this block before any other if it hasn’t been run already.\nmessage: false suppresses the usual messages we see in our notebook after loading libraries. Usually we want to see these messages, but not on this chunk because they are standard. Plus, I wanted to show you how the options work.\n\nExecution options are not required, but those two are useful for our libraries chunk. That’s often the only place I use any."
   },
   {
-    "objectID": "slides/01-slide-test.html#dinner",
-    "href": "slides/01-slide-test.html#dinner",
-    "title": "Slide explainers",
-    "section": "Dinner",
-    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+    "objectID": "lessons/d1-02-import.html#functions",
+    "href": "lessons/d1-02-import.html#functions",
+    "title": "Importing & Cleaning",
+    "section": "Functions",
+    "text": "Functions\nThat library() command above is what we call a function in R, and it is similar to formulas in a spreadsheet. They are the “verbs” of R where all the action happens.\nInside the parenthesis of the function we add arguments, and the first argument is usually what data we are inserting into the function. There can be options to control the function.\nfunction(data, options = \"value\")\nWe can also string these functions together, taking the result of one and piping it into the next function. We’ll do that soon."
   },
   {
-    "objectID": "slides/01-slide-test.html#going-to-sleep",
-    "href": "slides/01-slide-test.html#going-to-sleep",
-    "title": "Slide explainers",
-    "section": "Going to sleep",
-    "text": "Going to sleep\n\nGet in bed\nCount sheep"
+    "objectID": "lessons/d1-02-import.html#importing-data",
+    "href": "lessons/d1-02-import.html#importing-data",
+    "title": "Importing & Cleaning",
+    "section": "Importing data",
+    "text": "Importing data\nWe use functions from the readr package to import our data. You choose which function to use based on the format of the data you are trying to import.\nThe data we have prepared for you here is in “csv” format, or comma separated values. Our notebook is stored inside alessons/ folder in our project, and our data is right next to it in lessons/data/. You can use the Files pane to see it.\nHere, we import the tx.csv file to look at it.\n\nread_csv(\"data/tx.csv\")\n\nRows: 94475 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (2): STATION, NAME\ndbl  (7): PRCP, SNOW, SNWD, TAVG, TMAX, TMIN, TOBS\ndate (1): DATE\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\n  \n\n\n\nWe get two outputs here:\n\nThe R Console pane shows messages about our import\nThe second pane shows our data\n\nLike when we printed out our cars in the Introduction, we can see all number of observations and variables, along with their names and data types.\nHowever, that data is only printing to our screen. It hasn’t been saved and we can’t reuse it. That’s next."
+  },
+  {
+    "objectID": "lessons/d1-02-import.html#objects",
+    "href": "lessons/d1-02-import.html#objects",
+    "title": "Importing & Cleaning",
+    "section": "Objects",
+    "text": "Objects\nTo save something in our R environment to reuse it, we create an “object”. We name the object first, then use &lt;- to fill it with our data. It’s like you must have a bucket first before you can fill it with water.\n\nRun the code chunk below\n\n\ntx &lt;- read_csv(\"data/tx.csv\")\n\nRows: 94475 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (2): STATION, NAME\ndbl  (7): PRCP, SNOW, SNWD, TAVG, TMAX, TMIN, TOBS\ndate (1): DATE\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nWe still get messages about our input\nBut instead of printing our data to the screen, we have saved it into tx.\nIf you look at your Environment pane at the top-right of RStudio, you’ll see your saved object listed there.\n\n\n\n\n\n\n\nTip\n\n\n\nNormally we would not use two code chunks to read and then save our data. We would just edit the first chunk once we know our read_csv() was successful.\n\n\n\nOYO: Import\nHere I want you to import weather data from a different state and save it into an object. Look in the lessons/data/ folder to see the files to choose from.\n\nAfter these directions but before the next headline, add a new code chunk.\nUse the read_csv() command to read in your data and run it to make sure it works.\nEdit that same chunk to save your data into a new object. Make sure you see it in your Environment tab.\nAdd some notes in text to tell your future self what you’ve done.\n\n\n\nMore about readr\nThere is a cheatsheet in the readr documentation that outlines functions to import different kinds of data. There are also options for things like skipping lines, renaming columns and other common challenges."
+  },
+  {
+    "objectID": "lessons/d1-02-import.html#piping-and-peeking",
+    "href": "lessons/d1-02-import.html#piping-and-peeking",
+    "title": "Importing & Cleaning",
+    "section": "Piping and peeking",
+    "text": "Piping and peeking\nNow that we have data saved into our environment, let’s talk about different ways to look at it.\nWe’ve already shown you can just run the object in a code block to see the first 1000 lines:\n\ntx\n\n\n\n  \n\n\n\nBut we can also “pipe” our data into other functions to look at just part of it.\nHere we use the native R “pipe” command |&gt; to take the result of tx and pass it to a function called head().\n\ntx |&gt; head()\n\n\n\n  \n\n\n\n\nAbout the pipe |&gt;\nThe pipe is a construct that takes the result of an object or function and passes it into another function. Think of it like a sentence that says “AND THEN” the next thing.\nLike this:\nI woke up |&gt; \n  got out of bed |&gt;\n  dragged a comb across my head\nYou can’t start a new line with a pipe. If you are breaking your code into multiple lines, then the |&gt; needs to be at the end of a line and the next line should be indented so there is a visual clue it is related to line above it, like this:\ntx |&gt; \n  head()\nIt might look like there are no arguments inside head(), but what we are actually doing is passing the tx tibble into it like this: head(tx). For almost every function in R the first argument is “what data are you taking about?” The pipe allows us to say “hey, take the data we just mucked with (i.e., the code before the pipe) and use that in this function.”\nCan can add other arguments to the new function. For instance, we can tell head() how many lines to print:\n\ntx |&gt; head(20)\n\n\n\n  \n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThere is a keyboard command for the pipe |&gt;: Cmd+Shift+m. Learn that one!\n\n\n\n\nA rabbit dives into a pipe\nThe concept of the pipe was first introduced by tidyverse developers in 2014 in a package called magrittr. They used the symbol %&gt;% as the pipe. It was so well received the concept was written directly into base R in 2021, but using the symbol |&gt;. Hadley Wickham’s 2022 rewriting of R for Data Science uses the base R pipe |&gt; by default. You can configure which to use in RStudio.\n(This switch to |&gt; is quite recent so you will see %&gt;% used in our lectures and in documentation online. Assume |&gt; and %&gt;% are interchangeable. There is A LOT of code in the wild using the magrittr pipe %&gt;%, so you’ll find many references on Stack Overflow and elsewhere.)"
+  },
+  {
+    "objectID": "lessons/d1-02-import.html#glimpse",
+    "href": "lessons/d1-02-import.html#glimpse",
+    "title": "Importing & Cleaning",
+    "section": "Glimpse",
+    "text": "Glimpse\nThe glimpse() function allows you to look at your data in another way … to see all the variables and their data types, no matter how many there are.\n\ntx |&gt; glimpse()\n\nRows: 94,475\nColumns: 10\n$ STATION &lt;chr&gt; \"USW00012918\", \"USW00012918\", \"USW00012918\", \"USW00012918\", \"U…\n$ NAME    &lt;chr&gt; \"HOUSTON WILLIAM P HOBBY AIRPORT, TX US\", \"HOUSTON WILLIAM P H…\n$ DATE    &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1…\n$ PRCP    &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, …\n$ SNOW    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ SNWD    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ TAVG    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ TMAX    &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97…\n$ TMIN    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70…\n$ TOBS    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…\n\n\nThis is super handy to have because you can see all your variable names in the same screen. I use it all the time.\n\nOYO: Peek at your data\nI’d like you to use your own data set to use the head(), glimpse() functions and the |&gt; operator.\n\nIn the space below these directions but before the next headline, add some text that you are looking at the top of your data, and then create code chunk and print the first 30 lines of your data.\nAfter you’ve done that, add some text that you’ll glimpse your data, then add a second code chunk and do just that."
+  },
+  {
+    "objectID": "lessons/d1-02-import.html#select-columns",
+    "href": "lessons/d1-02-import.html#select-columns",
+    "title": "Importing & Cleaning",
+    "section": "Select columns",
+    "text": "Select columns\nInfo about doing it. Example with Texas.\n\nOYO: Select\nDirections to do on your own with another state."
+  },
+  {
+    "objectID": "lessons/d1-02-import.html#export-your-data",
+    "href": "lessons/d1-02-import.html#export-your-data",
+    "title": "Importing & Cleaning",
+    "section": "Export your data",
+    "text": "Export your data\n\nOYO: Write out your data"
+  },
+  {
+    "objectID": "slides/sd1-02-import.html#libraries",
+    "href": "slides/sd1-02-import.html#libraries",
+    "title": "Importing",
+    "section": "Libraries",
+    "text": "Libraries\nLibraries are a collections of pre-written functions that we download to our computer so we can us them in our code.\nThe Tidyverse has several libraries that are designed to work together, like dplyr to manipulate data, and ggplot to make charts."
   },
   {
     "objectID": "index.html",
@@ -49,31 +91,143 @@
     "text": "CHJ test\nTest from README.\n\nTo the first lessson\nTo a slide deck"
   },
   {
+    "objectID": "slides/sd1-01-intro.html#install-r-rstudio",
+    "href": "slides/sd1-01-intro.html#install-r-rstudio",
+    "title": "Quarto, R & RStudio",
+    "section": "Install R & RStudio",
+    "text": "Install R & RStudio\nYou’ll need to go to https://posit.co/downloads/ and click on the big Download RStudio button there. There are two parts:\n\nInstall the R language\nInstall the RStudio Desktop program\n\nMake sure you run the installer or copy into your Applications folder as noted.\nThe R language gets installed on your machine, but you never launch it like a regular program."
+  },
+  {
+    "objectID": "slides/sd1-01-intro.html#install-quarto",
+    "href": "slides/sd1-01-intro.html#install-quarto",
+    "title": "Quarto, R & RStudio",
+    "section": "Install Quarto",
+    "text": "Install Quarto\n\nGo to quarto.org/ and then click the Getting Started link.\nDownload and install the software for your machine."
+  },
+  {
+    "objectID": "slides/sd1-01-intro.html#launch-rstudio",
+    "href": "slides/sd1-01-intro.html#launch-rstudio",
+    "title": "Quarto, R & RStudio",
+    "section": "Launch RStudio",
+    "text": "Launch RStudio\n\nFrom your Applications folder (or through your Start menu) launch the program called RStudio\n\n\nlauncher"
+  },
+  {
+    "objectID": "slides/sd1-01-intro.html#about-rstudio-desktop",
+    "href": "slides/sd1-01-intro.html#about-rstudio-desktop",
+    "title": "Quarto, R & RStudio",
+    "section": "About RStudio Desktop",
+    "text": "About RStudio Desktop\nWe’ll orient a bit in class.\n\nRStudio Desktop"
+  },
+  {
+    "objectID": "slides/sd1-01-intro.html#look-for-the-console",
+    "href": "slides/sd1-01-intro.html#look-for-the-console",
+    "title": "Quarto, R & RStudio",
+    "section": "Look for the console",
+    "text": "Look for the console\nWe need you to run some commands in the RStudio Console. We’ll provide code to copy/paste.\nInstall packages\nThis will take some time to run, depending on the internet.\ninstall.packages(c(\"usethis\", \"tidyverse\", \"quarto\", \"rmarkdown\", \"janitor\"))\nDownload, open the material\nAs you are asked questions, choose the default answers or ones that make the most sense.\nusethis::use_course(\"https://github.com/r-journalism/chjr/archive/master.zip\")"
+  },
+  {
+    "objectID": "slides/sd1-01-intro.html#using-projects",
+    "href": "slides/sd1-01-intro.html#using-projects",
+    "title": "Quarto, R & RStudio",
+    "section": "Using projects",
+    "text": "Using projects\n\n\nR needs to know where things live on your computer so it can find them.\nWe use projects to organize our work. One folder for each project, with everything you need."
+  },
+  {
+    "objectID": "slides/sd1-01-intro.html#open-our-first-lesson",
+    "href": "slides/sd1-01-intro.html#open-our-first-lesson",
+    "title": "Quarto, R & RStudio",
+    "section": "Open our first lesson",
+    "text": "Open our first lesson\n\nIn the Files pane, find our first file in lessons/d1-01-intro.qmd and open it.\nThis should open in your pane to the left, with the Console below it.\n\nWe’ll work from there now."
+  },
+  {
+    "objectID": "slides/sd1-01-intro.html#tour-of-our-project",
+    "href": "slides/sd1-01-intro.html#tour-of-our-project",
+    "title": "Quarto, R & RStudio",
+    "section": "Tour of our project",
+    "text": "Tour of our project"
+  },
+  {
+    "objectID": "lessons/functions.html",
+    "href": "lessons/functions.html",
+    "title": "R Functions",
+    "section": "",
+    "text": "An opinionated list of the most common data wrangling functions. It leans heavily into the Tidyverse.\n\n\n\nread_csv() imports data from a CSV file. (It handles data types better than the base R read.csv()). Also write_csv() when you need export as CSV. Example: read_csv(\"path/to/file.csv\").\nwrite_rds to save a data frame as an .rds R data data file. This preserves all the data types. read_rds() to import R data. Example: read_rds(\"path/to/file.rds\").\nreadxl is a package we didn’t use, but it has read_excel() that allows you to import from an Excel file, including specified sheets and ranges.\nclean_names() from the library(janitor) package standardizes column names.\n\n\n\n\n\nselect() to select columns. Example: select(col01, col02) or select(-excluded_col).\nrename() to rename a column. Example: rename(new_name = old_name).\nfilter() to filter rows of data. Example: filter(column_name == \"value\").\n\nSee Relational Operators like ==, &gt;, &gt;= etc.\nSee Logical operators like &, | etc.\nSee is.na tests if a value is missing.\n\ndistinct() will filter rows down to the unique values of the columns given.\narrange() sorts data based on values in a column. Use desc() to reverse the order. Example: arrange(col_name %&gt;% desc())\nmutate() changes and existing column or creates a new one. Example: mutate(new_col = (col01 / col02)).\nround() is a base R function that can round a number to a set decimal point. Often used within a mutate() function.\nrecode(), if_else() and case_when() are all functions that can be used with mutate() to create new categorizations with your data.\npivot_longer() “lengthens” data, increasing the number of rows and decreasing the number of columns. Example: pivot_longer(cols = 3:5, names_to = \"new_key_col_name\", values_to = \"new_val_col_name\") will take the third through the fifth columns and turn each value into a new row of data. It will put them into two columns: The first column will have the name you give it in names_to and contain the old column name that corresponds to each value pivoted. The second column will have the name of whatever you set in values_to and will contain all the values from each of the columns.\npivot_wider() is the opposite of pivot_longer(). Example: pivot_wider(names_from = col_of_key_values, values_from = col_with_values). See the link.\n\n\n\n\n\ngroup_by() and summarize() often come together. When you use group_by(), every function after it is broken down by that grouping. We often add arrange() to these, calling this our GSA functions. Example: group_by(song, artist) %&gt;% summarize(weeks = n(), top_chart_position = min(peak_position)). To break or remove groupings, use ungroup().\ncount() is a shortcut for GSA that count the number rows based on variable groups you feed it.\n\n\n\n\nThese are the function often used within summarize():\n\nn() to count the number of rows. n_distinct() counts the unique values.\nsum() to add things together.\nmean() to get an average.\nmedian() to get the median.\nmin() to get the smallest value. max() for the largest.\n+, -, *, / are math operators similar to a calculator."
+  },
+  {
+    "objectID": "lessons/functions.html#importexport",
+    "href": "lessons/functions.html#importexport",
+    "title": "R Functions",
+    "section": "",
+    "text": "read_csv() imports data from a CSV file. (It handles data types better than the base R read.csv()). Also write_csv() when you need export as CSV. Example: read_csv(\"path/to/file.csv\").\nwrite_rds to save a data frame as an .rds R data data file. This preserves all the data types. read_rds() to import R data. Example: read_rds(\"path/to/file.rds\").\nreadxl is a package we didn’t use, but it has read_excel() that allows you to import from an Excel file, including specified sheets and ranges.\nclean_names() from the library(janitor) package standardizes column names."
+  },
+  {
+    "objectID": "lessons/functions.html#data-manipulation",
+    "href": "lessons/functions.html#data-manipulation",
+    "title": "R Functions",
+    "section": "",
+    "text": "select() to select columns. Example: select(col01, col02) or select(-excluded_col).\nrename() to rename a column. Example: rename(new_name = old_name).\nfilter() to filter rows of data. Example: filter(column_name == \"value\").\n\nSee Relational Operators like ==, &gt;, &gt;= etc.\nSee Logical operators like &, | etc.\nSee is.na tests if a value is missing.\n\ndistinct() will filter rows down to the unique values of the columns given.\narrange() sorts data based on values in a column. Use desc() to reverse the order. Example: arrange(col_name %&gt;% desc())\nmutate() changes and existing column or creates a new one. Example: mutate(new_col = (col01 / col02)).\nround() is a base R function that can round a number to a set decimal point. Often used within a mutate() function.\nrecode(), if_else() and case_when() are all functions that can be used with mutate() to create new categorizations with your data.\npivot_longer() “lengthens” data, increasing the number of rows and decreasing the number of columns. Example: pivot_longer(cols = 3:5, names_to = \"new_key_col_name\", values_to = \"new_val_col_name\") will take the third through the fifth columns and turn each value into a new row of data. It will put them into two columns: The first column will have the name you give it in names_to and contain the old column name that corresponds to each value pivoted. The second column will have the name of whatever you set in values_to and will contain all the values from each of the columns.\npivot_wider() is the opposite of pivot_longer(). Example: pivot_wider(names_from = col_of_key_values, values_from = col_with_values). See the link."
+  },
+  {
+    "objectID": "lessons/functions.html#aggregation",
+    "href": "lessons/functions.html#aggregation",
+    "title": "R Functions",
+    "section": "",
+    "text": "group_by() and summarize() often come together. When you use group_by(), every function after it is broken down by that grouping. We often add arrange() to these, calling this our GSA functions. Example: group_by(song, artist) %&gt;% summarize(weeks = n(), top_chart_position = min(peak_position)). To break or remove groupings, use ungroup().\ncount() is a shortcut for GSA that count the number rows based on variable groups you feed it."
+  },
+  {
+    "objectID": "lessons/functions.html#math",
+    "href": "lessons/functions.html#math",
+    "title": "R Functions",
+    "section": "",
+    "text": "These are the function often used within summarize():\n\nn() to count the number of rows. n_distinct() counts the unique values.\nsum() to add things together.\nmean() to get an average.\nmedian() to get the median.\nmin() to get the smallest value. max() for the largest.\n+, -, *, / are math operators similar to a calculator."
+  },
+  {
     "objectID": "lessons/d1-01-intro.html",
     "href": "lessons/d1-01-intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "The idea is this …\nThere would be pre-written code, with explanations of what it does. Fellows would work through this notebook, running pre-written code and adding new code of their own in mini “on your own” quests.\nThey can Render the page as we go along to see how that works.\nPractice is in a different notebook."
+    "text": "The purpose of this first module is to:\n\nGet you familiar with RStudio, the program we use to write R code.\nIntroduce Quarto documents, which allow you to write notes and code together in the same document, just like this document that you are reading."
   },
   {
-    "objectID": "lessons/d1-01-intro.html#libraries",
-    "href": "lessons/d1-01-intro.html#libraries",
+    "objectID": "lessons/d1-01-intro.html#welcome-to-the-center-for-health-journalism-r-course.",
+    "href": "lessons/d1-01-intro.html#welcome-to-the-center-for-health-journalism-r-course.",
     "title": "Introduction",
-    "section": "Libraries",
-    "text": "Libraries\nTalk about them. This is fenced to show the chunk options.\n\n```{r}\n#| label: setup\n#| message: false\n\nlibrary(tidyverse)\nlibrary(janitor)\n```\n\n\n\n\n\n\n\nImportant\n\n\n\nThere is no OYO for setting up libraries since we don’t want to do it twice in the same notebook.."
+    "section": "",
+    "text": "The purpose of this first module is to:\n\nGet you familiar with RStudio, the program we use to write R code.\nIntroduce Quarto documents, which allow you to write notes and code together in the same document, just like this document that you are reading."
   },
   {
-    "objectID": "lessons/d1-01-intro.html#importing",
-    "href": "lessons/d1-01-intro.html#importing",
+    "objectID": "lessons/d1-01-intro.html#about-quarto-r-and-scripted-journalism",
+    "href": "lessons/d1-01-intro.html#about-quarto-r-and-scripted-journalism",
     "title": "Introduction",
-    "section": "Importing",
-    "text": "Importing\nA lot of talk about how this works …\n\ntx &lt;- read_csv(\"../data-raw/tx.csv\") |&gt; clean_names()\n\nRows: 94475 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (2): STATION, NAME\ndbl  (7): PRCP, SNOW, SNWD, TAVG, TMAX, TMIN, TOBS\ndate (1): DATE\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ntx |&gt; glimpse()\n\nRows: 94,475\nColumns: 10\n$ station &lt;chr&gt; \"USW00012918\", \"USW00012918\", \"USW00012918\", \"USW00012918\", \"U…\n$ name    &lt;chr&gt; \"HOUSTON WILLIAM P HOBBY AIRPORT, TX US\", \"HOUSTON WILLIAM P H…\n$ date    &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1…\n$ prcp    &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, …\n$ snow    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ snwd    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ tavg    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ tmax    &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97…\n$ tmin    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70…\n$ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…\n\n\n\nOYO: Import\nInsert a new code block here and import the weather data from a different state from the data-raw/ folder.\n\nThe challenge here is the page will stop rendering if they get an error, but hopefully we’ll work through that since it will be an issue in any event."
+    "section": "About Quarto, R and scripted journalism",
+    "text": "About Quarto, R and scripted journalism\nBefore we dive into RStudio and programming and all that, I want to show you where we are heading, so you can “visualize success”. We are teaching a method for data journalism that is repeatable, transparent and annotated. When you do your work, you should intersperse notes and code, creating a document your future self can easily catch up on, or that you can share with others. The best way to explain this is to show you an example.\n\nGo to this link in a new browser window: Major League Soccer salaries.\n\nThis is a website with all the code from a data journalism project. If you click on the navigation link for Cleaning you can read where the data come from and see all the steps I went through – with code and explanation – to process the data so I could work with it. And in the Analysis 2023 notebook you’ll see I set out with some questions for the data, and then I wrote the code to find my answers. Along with the way I wrote explanations of how and why I did what I did.\n\n\n\nQuarto Pub page\n\n\nThis website was created using Quarto and R, and the tool I used to write everything was RStudio.\nThis document you are reading also a Quarto document. Our lessons have explanations, instructions and code you can run right on your computer. You’ll also be asked to write write and run some on your own code.\n\nThe written words and explanations are written in a syntax called Markdown. It’s a common language used by programmers to create documentation. It’s understandable as text, but also easily converted to other formats.\nThe programming code for data is writing in R in code chunks. We’ll introduce those in a moment.\n\n\nRender your first document\n\nWith this document open in R Studio, look at the toolbar directly above the writing and look for the Render button with the blue arrow next to it. Click on that word.\nThis will create (or render) a “publishable” version of this document in HTML and present it in the Viewer page (or perhaps in a new window, which we can fix).\n\nYou can read this lesson text there, but realize that rendered page doesn’t update with edits in the Quarto document unless you tell it to.\nKeep this in mind:\n\nWe can also easily publish the same work in other formats, like PDF, Word or even a slide show.\nWe can also choose NOT to “publish” our work. We don’t have to share our work on the internet, we are just ready if we want to."
   },
   {
-    "objectID": "lessons/d1-01-intro.html#select-columns",
-    "href": "lessons/d1-01-intro.html#select-columns",
+    "objectID": "lessons/d1-01-intro.html#rstudio-tour",
+    "href": "lessons/d1-01-intro.html#rstudio-tour",
     "title": "Introduction",
-    "section": "Select columns",
-    "text": "Select columns\nInfo about doing it. Example with Texas.\n\nOYO: Select\nDirections to do on your own with another state."
+    "section": "RStudio tour",
+    "text": "RStudio tour\nWhen you launch RStudio, you get a screen that looks like this:\n\n\n\nRStudio launch screen\n\n\nSome things of note here:\n\nAt the top-right of your RStudio window is a Project menu that should show the name of this project that you have open. If you click on the dropdown, you’ll see other options.\n\nWe always want to be working in a project, which is basically a folder to hold your documents and data.\n\nNote the quadrant on the bottom right that includes the Files, Help and Viewer panes. You’ll likely be flipping back and forth among those.\n\nThe Files pane shows all the documents in your project. This is where you go to open new documents in your project.\nThe Help pane allows us to search for help using R.\nThe Viewer pane is where our rendered documents display."
+  },
+  {
+    "objectID": "lessons/d1-01-intro.html#updating-preferences",
+    "href": "lessons/d1-01-intro.html#updating-preferences",
+    "title": "Introduction",
+    "section": "Updating preferences",
+    "text": "Updating preferences\n\nI’m considering skipping this section entirely since we don’t have much time - crit\n\nThere are some preferences in RStudio that I would like you to change. By default, the program wants to save the state of your work (all the variables and such) when you close a project, but that is typically not good practice. We’ll change that.\n\nGo to the Tools menu and choose Global Options.\nUnder the General tab, uncheck the first four boxes.\nOn the option “Save Workspace to .Rdata on exit”, change that to Never.\nClick Apply to save the change (but don’t close the box yet).\n\n\n\n\nRStudio preferences\n\n\nNext we will set some value is the Code pane.\n\nOn the left options, click on the Code pane.\nCheck the box for Use native pipe operator, |&gt;.\nClick OK to save and close the box.\n\n\n\n\nNative pipe preference\n\n\nWe’ll get into why we did this part later."
+  },
+  {
+    "objectID": "lessons/d1-01-intro.html#the-r-package-environment",
+    "href": "lessons/d1-01-intro.html#the-r-package-environment",
+    "title": "Introduction",
+    "section": "The R Package environment",
+    "text": "The R Package environment\nR is an open-source language, which means that other programmers can contribute to how it works. It is what makes R beautiful.\nWhat happens is developers will find it difficult to do a certain task, so they will write code that solves that problem and save it into an R “package” so they can use it later. They share that code with the community, and suddenly the R garage has an “ultimate set of tools” that would make Spicoli’s dad proud.\nOne set of these tools is the tidyverse developed by Hadley Wickham and his team at Posit. It’s a set of R packages for data science that are designed to work together. I highly recommend Wickham’s book R for data science, which is free.\nThere are also a series of useful tidyverse cheatsheets that can help you as you use the packages and functions from the tidyverse. We’ll refer to these throughout the course.\n\nHow we use packages\nThere are two steps to using an R package:\n\nInstall the package onto your computer by using install.packages(\"package_name\"). You only have to do this once for each computer, so I usually do it using the R Console instead of in a notebook. We installed most of ours already.\nInclude the library using library(package_name). This has to be done for each notebook or script that uses it, so it is usually one of the first things you’ll see in a notebook.\n\n\n\n\n\n\n\nNote\n\n\n\nWe use “quotes” around the package name when installing it, but we DON’T need quotes when we load it with library(package_name).\n\n\n\n\nJust in case\ninstall.packages(c(\"quarto\", \"rmarkdown\", \"tidyverse\", \"janitor\"))\nYou’ll see a bunch of response fly by in the Console. It’s probably all fine unless it ends the last response with an error."
+  },
+  {
+    "objectID": "lessons/d1-01-intro.html#about-r-chunks",
+    "href": "lessons/d1-01-intro.html#about-r-chunks",
+    "title": "Introduction",
+    "section": "About R chunks",
+    "text": "About R chunks\nWhile you used the R console above to interact with R (yes, that is what you were doing), we will mostly add code to our notebooks using code chunks.\n\nIn this RStudio notebook in the code chunk below, click on the green play button to run the code in the chunk.\nYou should get a response something like [1] 2 which is a row number [1] and the answer to the match equation 2.\n\n\n1 + 1\n\n[1] 2\n\n\nThere is a keyboard command to run a line of code, and it is among five key commands we really suggest you use. Presented for Mac:\n\nCmd-return runs a single line of code that your cursor is on.\nCmd-shift-return runs all the lines in the code chunk where your cursor is.\n\nAll of these options are also in the Run menu at the top of the document.\n\nOYO: Insert a code chunk\nThe best way to insert a new code chunk is to use the keyboard command Cmd-option-i. That said, there is also a green +c button above the document near that Run menu.\n\nIn the space below this direction but before the next headline, add a new code chunk using the keyboard command Cmd-option-i.\n\nNotice it adds all the characters needed and then puts your cursor inside so you are ready to type.\n\nInside that code chunk, add 2 + 2 and then run the chunk to see the answer.\n\n\n\nData frames and plots\nThere is a sample data set in R called cars that has the stopping distance of cars as measured some time in history. We’ll use it to show a couple more things about code blocks.\nThe code chunk below has two lines of code:\n\nThe first just says cars, which prints out the data.\nThe second line is a function called plot() with cars inside of it. That function acts on the cars data to create a scatter plot.\n\n\nRun the code below.\n\n\ncars\n\n\n\n  \n\n\nplot(cars)\n\n\n\n\nSince we have two lines with two different outputs, the Quarto notebook shows them as panes you can swap back and forth. The rendered page shows each line of code, then its output.\n\nThe data.frame part is printing out data. There is a lot of information available in that printout, including the number of rows (we call them observations) and columns (we call them variables), the names of those columns/variables, the data types of each variable, and then their values. We call data like this a “data frame” or “tibble”. It’s like a highly structured spreadsheet.\nThe second pane is a chart (or plot as we call them). The function plot() took the only two variables in the data and, well, plotted them.\n\nYes, it can be that easy to visualize data in R. But not usually.\n\n\nOYO: Re-render this page one last time\nNow that you’ve been introduced to how a Quarto document is written, go ahead and re-render this page by using the Render button or Cmd-shift-k."
   }
 ]

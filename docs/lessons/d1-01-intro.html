@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Christian McDonald">
 
 <title>Introduction</title>
 <style>
@@ -94,6 +95,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -162,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lessons/d1-02-import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Importing data</span></a>
+ <span class="menu-text">Importing &amp; Cleaning</span></a>
   </div>
 </li>
       </ul>
@@ -184,6 +188,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons/functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -194,14 +215,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries">Libraries</a></li>
-  <li><a href="#importing" id="toc-importing" class="nav-link" data-scroll-target="#importing">Importing</a>
+  <li><a href="#welcome-to-the-center-for-health-journalism-r-course." id="toc-welcome-to-the-center-for-health-journalism-r-course." class="nav-link active" data-scroll-target="#welcome-to-the-center-for-health-journalism-r-course.">Welcome to the Center for Health Journalism R course.</a></li>
+  <li><a href="#about-quarto-r-and-scripted-journalism" id="toc-about-quarto-r-and-scripted-journalism" class="nav-link" data-scroll-target="#about-quarto-r-and-scripted-journalism">About Quarto, R and scripted journalism</a>
   <ul class="collapse">
-  <li><a href="#oyo-import" id="toc-oyo-import" class="nav-link" data-scroll-target="#oyo-import">OYO: Import</a></li>
+  <li><a href="#render-your-first-document" id="toc-render-your-first-document" class="nav-link" data-scroll-target="#render-your-first-document">Render your first document</a></li>
   </ul></li>
-  <li><a href="#select-columns" id="toc-select-columns" class="nav-link" data-scroll-target="#select-columns">Select columns</a>
+  <li><a href="#rstudio-tour" id="toc-rstudio-tour" class="nav-link" data-scroll-target="#rstudio-tour">RStudio tour</a></li>
+  <li><a href="#updating-preferences" id="toc-updating-preferences" class="nav-link" data-scroll-target="#updating-preferences">Updating preferences</a></li>
+  <li><a href="#the-r-package-environment" id="toc-the-r-package-environment" class="nav-link" data-scroll-target="#the-r-package-environment">The R Package environment</a>
   <ul class="collapse">
-  <li><a href="#oyo-select" id="toc-oyo-select" class="nav-link" data-scroll-target="#oyo-select">OYO: Select</a></li>
+  <li><a href="#how-we-use-packages" id="toc-how-we-use-packages" class="nav-link" data-scroll-target="#how-we-use-packages">How we use packages</a></li>
+  <li><a href="#just-in-case" id="toc-just-in-case" class="nav-link" data-scroll-target="#just-in-case">Just in case</a></li>
+  </ul></li>
+  <li><a href="#about-r-chunks" id="toc-about-r-chunks" class="nav-link" data-scroll-target="#about-r-chunks">About R chunks</a>
+  <ul class="collapse">
+  <li><a href="#oyo-insert-a-code-chunk" id="toc-oyo-insert-a-code-chunk" class="nav-link" data-scroll-target="#oyo-insert-a-code-chunk">OYO: Insert a code chunk</a></li>
+  <li><a href="#data-frames-and-plots" id="toc-data-frames-and-plots" class="nav-link" data-scroll-target="#data-frames-and-plots">Data frames and plots</a></li>
+  <li><a href="#oyo-re-render-this-page-one-last-time" id="toc-oyo-re-render-this-page-one-last-time" class="nav-link" data-scroll-target="#oyo-re-render-this-page-one-last-time">OYO: Re-render this page one last time</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -218,6 +248,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Christian McDonald </p>
+          </div>
+  </div>
     
   
     
@@ -226,82 +262,201 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>The idea is this …</p>
-<p>There would be pre-written code, with explanations of what it does. Fellows would work through this notebook, running pre-written code and adding new code of their own in mini “on your own” quests.</p>
-<p>They can Render the page as we go along to see how that works.</p>
-<p>Practice is in a different <a href="p1-intro.qmd">notebook</a>.</p>
-<section id="libraries" class="level2">
-<h2 class="anchored" data-anchor-id="libraries">Libraries</h2>
-<p>Talk about them. This is fenced to show the chunk options.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="welcome-to-the-center-for-health-journalism-r-course." class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-the-center-for-health-journalism-r-course.">Welcome to the Center for Health Journalism R course.</h2>
+<p>The purpose of this first module is to:</p>
+<ul>
+<li>Get you familiar with RStudio, the program we use to write R code.</li>
+<li>Introduce Quarto documents, which allow you to write notes and code together in the same document, just like this document that you are reading.</li>
+</ul>
+</section>
+<section id="about-quarto-r-and-scripted-journalism" class="level2">
+<h2 class="anchored" data-anchor-id="about-quarto-r-and-scripted-journalism">About Quarto, R and scripted journalism</h2>
+<p>Before we dive into RStudio and programming and all that, I want to show you where we are heading, so you can “visualize success”. We are teaching a method for data journalism that is repeatable, transparent and annotated. When you do your work, you should intersperse notes and code, creating a document your future self can easily catch up on, or that you can share with others. The best way to explain this is to show you an example.</p>
+<ol type="1">
+<li>Go to this link in a new browser window: <a href="https://christianmcdonald.quarto.pub/mls-salaries/">Major League Soccer salaries</a>.</li>
+</ol>
+<p>This is a website with all the code from a data journalism project. If you click on the navigation link for <a href="https://christianmcdonald.quarto.pub/mls-salaries/01-cleaning.html">Cleaning</a> you can read where the data come from and see all the steps I went through – with code and explanation – to process the data so I could work with it. And in the <a href="https://christianmcdonald.quarto.pub/mls-salaries/02-analysis.html">Analysis 2023</a> notebook you’ll see I set out with some questions for the data, and then I wrote the code to find my answers. Along with the way I wrote explanations of how and why I did what I did.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/mls-analysis.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Quarto Pub page</figcaption>
+</figure>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>This website was created using Quarto and R, and the tool I used to write everything was RStudio.</p>
+<p>This document you are reading also a Quarto document. Our lessons have explanations, instructions and code you can run right on your computer. You’ll also be asked to write write and run some on your own code.</p>
+<ul>
+<li>The written words and explanations are written in a syntax called <a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown</a>. It’s a common language used by programmers to create documentation. It’s understandable as text, but also easily converted to other formats.</li>
+<li>The programming code for data is writing in R in code chunks. We’ll introduce those in a moment.</li>
+</ul>
+<section id="render-your-first-document" class="level3">
+<h3 class="anchored" data-anchor-id="render-your-first-document">Render your first document</h3>
+<ol type="1">
+<li>With this document open in R Studio, look at the toolbar directly above the writing and look for the <strong>Render</strong> button with the blue arrow next to it. Click on that word.</li>
+<li>This will create (or render) a “publishable” version of this document in HTML and present it in the <em>Viewer</em> page (or perhaps in a new window, which we can fix).</li>
+</ol>
+<p>You can read this lesson text there, but realize that rendered page doesn’t update with edits in the Quarto document unless you tell it to.</p>
+<p>Keep this in mind:</p>
+<ul>
+<li>We can also easily publish the same work in other formats, like PDF, Word or even a slide show.</li>
+<li>We can also choose NOT to “publish” our work. We don’t <em>have</em> to share our work on the internet, we are just ready if we want to.</li>
+</ul>
+</section>
+</section>
+<section id="rstudio-tour" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-tour">RStudio tour</h2>
+<p>When you launch RStudio, you get a screen that looks like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/intro-start.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">RStudio launch screen</figcaption>
+</figure>
+</div>
+<p>Some things of note here:</p>
+<ul>
+<li>At the top-right of your RStudio window is a <strong>Project</strong> menu that should show the name of this project that you have open. If you click on the dropdown, you’ll see other options.
+<ul>
+<li>We always want to be working in a project, which is basically a folder to hold your documents and data.</li>
+</ul></li>
+<li>Note the quadrant on the bottom right that includes the <strong>Files</strong>, <strong>Help</strong> and <strong>Viewer</strong> panes. You’ll likely be flipping back and forth among those.
+<ul>
+<li>The <strong>Files</strong> pane shows all the documents in your project. This is where you go to open new documents in your project.</li>
+<li>The <strong>Help</strong> pane allows us to search for help using R.</li>
+<li>The <strong>Viewer</strong> pane is where our rendered documents display.</li>
+</ul></li>
+</ul>
+</section>
+<section id="updating-preferences" class="level2">
+<h2 class="anchored" data-anchor-id="updating-preferences">Updating preferences</h2>
+<blockquote class="blockquote">
+<p>I’m considering skipping this section entirely since we don’t have much time - crit</p>
+</blockquote>
+<p>There are some preferences in RStudio that I would like you to change. By default, the program wants to save the state of your work (all the variables and such) when you close a project, <a href="https://www.r-bloggers.com/2017/04/using-r-dont-save-your-workspace/">but that is typically not good practice</a>. We’ll change that.</p>
+<ol type="1">
+<li>Go to the <strong>Tools</strong> menu and choose <strong>Global Options</strong>.</li>
+<li>Under the <strong>General</strong> tab, uncheck the first four boxes.</li>
+<li>On the option “Save Workspace to .Rdata on exit”, change that to <strong>Never</strong>.</li>
+<li>Click <em>Apply</em> to save the change (but don’t close the box yet).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rstudio-prefs.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">RStudio preferences</figcaption>
+</figure>
+</div>
+<p>Next we will set some value is the <strong>Code</strong> pane.</p>
+<ol type="1">
+<li>On the left options, click on the <strong>Code</strong> pane.</li>
+<li>Check the box for <strong>Use native pipe operator, |&gt;</strong>.</li>
+<li>Click <strong>OK</strong> to save and close the box.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/native_pipe_pref.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Native pipe preference</figcaption>
+</figure>
+</div>
+<p>We’ll get into why we did this part later.</p>
+</section>
+<section id="the-r-package-environment" class="level2">
+<h2 class="anchored" data-anchor-id="the-r-package-environment">The R Package environment</h2>
+<p>R is an open-source language, which means that other programmers can contribute to how it works. It is what makes R beautiful.</p>
+<p>What happens is developers will find it difficult to do a certain task, so they will write code that solves that problem and save it into an R “package” so they can use it later. They share that code with the community, and suddenly the R garage has an <a href="https://youtu.be/Y1En6FKd5Pk?t=24">“ultimate set of tools”</a> that would make Spicoli’s dad proud.</p>
+<p>One set of these tools is the <a href="https://www.tidyverse.org/">tidyverse</a> developed by Hadley Wickham and his team at Posit. It’s a set of R packages for data science that are designed to work together. I highly recommend Wickham’s book <a href="https://r4ds.hadley.nz/">R for data science</a>, which is free.</p>
+<p>There are also a series of useful tidyverse <a href="https://rstudio.github.io/cheatsheets/">cheatsheets</a> that can help you as you use the packages and functions from the tidyverse. We’ll refer to these throughout the course.</p>
+<section id="how-we-use-packages" class="level3">
+<h3 class="anchored" data-anchor-id="how-we-use-packages">How we use packages</h3>
+<p>There are two steps to using an R package:</p>
+<ul>
+<li><strong>Install the package</strong> onto your computer by using <code>install.packages("package_name")</code>. You only have to do this once for each computer, so I usually do it using the R Console instead of in a notebook. <em>We installed most of ours already</em>.</li>
+<li><strong>Include the library</strong> using <code>library(package_name)</code>. This has to be done for <strong>each notebook</strong> or script that uses it, so it is usually one of the first things you’ll see in a notebook.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There is no OYO for setting up libraries since we don’t want to do it twice in the same notebook..</p>
+<p>We use “quotes” around the package name when installing it, but we DON’T need quotes when we load it with <code>library(package_name)</code>.</p>
 </div>
 </div>
 </section>
-<section id="importing" class="level2">
-<h2 class="anchored" data-anchor-id="importing">Importing</h2>
-<p>A lot of talk about how this works …</p>
+<section id="just-in-case" class="level3">
+<h3 class="anchored" data-anchor-id="just-in-case">Just in case</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"quarto"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"tidyverse"</span>, <span class="st">"janitor"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’ll see a bunch of response fly by in the Console. It’s probably all fine unless it ends the last response with an error.</p>
+</section>
+</section>
+<section id="about-r-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="about-r-chunks">About R chunks</h2>
+<p>While you used the R console above to interact with R (yes, that is what you were doing), we will mostly add code to our notebooks using <strong>code chunks</strong>.</p>
+<ol type="1">
+<li>In this RStudio notebook in the code chunk below, click on the green <strong>play</strong> button to run the code in the chunk.</li>
+<li>You should get a response something like <code>[1] 2</code> which is a row number <code>[1]</code> and the answer to the match equation <code>2</code>.</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tx <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data-raw/tx.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 94475 Columns: 10
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (2): STATION, NAME
-dbl  (7): PRCP, SNOW, SNWD, TAVG, TMAX, TMIN, TOBS
-date (1): DATE
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tx <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 94,475
-Columns: 10
-$ station &lt;chr&gt; "USW00012918", "USW00012918", "USW00012918", "USW00012918", "U…
-$ name    &lt;chr&gt; "HOUSTON WILLIAM P HOBBY AIRPORT, TX US", "HOUSTON WILLIAM P H…
-$ date    &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1…
-$ prcp    &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, …
-$ snow    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ snwd    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ tavg    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ tmax    &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97…
-$ tmin    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70…
-$ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…</code></pre>
+<pre><code>[1] 2</code></pre>
 </div>
 </div>
-<section id="oyo-import" class="level3">
-<h3 class="anchored" data-anchor-id="oyo-import">OYO: Import</h3>
-<p>Insert a new code block here and import the weather data from a different state from the <code>data-raw/</code> folder.</p>
-<blockquote class="blockquote">
-<p>The challenge here is the page will stop rendering if they get an error, but hopefully we’ll work through that since it will be an issue in any event.</p>
-</blockquote>
+<p>There is a keyboard command to run a line of code, and it is among five key commands we really suggest you use. Presented for Mac:</p>
+<ul>
+<li><em>Cmd-return</em> runs a single line of code that your cursor is on.</li>
+<li><em>Cmd-shift-return</em> runs all the lines in the code chunk where your cursor is.</li>
+</ul>
+<p>All of these options are also in the Run menu at the top of the document.</p>
+<section id="oyo-insert-a-code-chunk" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-insert-a-code-chunk">OYO: Insert a code chunk</h3>
+<p>The best way to insert a new code chunk is to use the keyboard command <em>Cmd-option-i</em>. That said, there is also a green <code>+c</code> button above the document near that <em>Run</em> menu.</p>
+<ol type="1">
+<li>In the space below this direction but before the next headline, add a new code chunk using the keyboard command <em>Cmd-option-i</em>.
+<ul>
+<li>Notice it adds all the characters needed and then puts your cursor inside so you are ready to type.</li>
+</ul></li>
+<li>Inside that code chunk, add <code>2 + 2</code> and then run the chunk to see the answer.</li>
+</ol>
 </section>
+<section id="data-frames-and-plots" class="level3">
+<h3 class="anchored" data-anchor-id="data-frames-and-plots">Data frames and plots</h3>
+<p>There is a sample data set in R called <code>cars</code> that has the stopping distance of cars as measured some time in history. We’ll use it to show a couple more things about code blocks.</p>
+<p>The code chunk below has two lines of code:</p>
+<ul>
+<li>The first just says <code>cars</code>, which prints out the data.</li>
+<li>The second line is a function called <code>plot()</code> with <code>cars</code> inside of it. That function acts on the cars data to create a scatter plot.</li>
+</ul>
+<ol type="1">
+<li>Run the code below.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["speed"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["dist"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"4","2":"2"},{"1":"4","2":"10"},{"1":"7","2":"4"},{"1":"7","2":"22"},{"1":"8","2":"16"},{"1":"9","2":"10"},{"1":"10","2":"18"},{"1":"10","2":"26"},{"1":"10","2":"34"},{"1":"11","2":"17"},{"1":"11","2":"28"},{"1":"12","2":"14"},{"1":"12","2":"20"},{"1":"12","2":"24"},{"1":"12","2":"28"},{"1":"13","2":"26"},{"1":"13","2":"34"},{"1":"13","2":"34"},{"1":"13","2":"46"},{"1":"14","2":"26"},{"1":"14","2":"36"},{"1":"14","2":"60"},{"1":"14","2":"80"},{"1":"15","2":"20"},{"1":"15","2":"26"},{"1":"15","2":"54"},{"1":"16","2":"32"},{"1":"16","2":"40"},{"1":"17","2":"32"},{"1":"17","2":"40"},{"1":"17","2":"50"},{"1":"18","2":"42"},{"1":"18","2":"56"},{"1":"18","2":"76"},{"1":"18","2":"84"},{"1":"19","2":"36"},{"1":"19","2":"46"},{"1":"19","2":"68"},{"1":"20","2":"32"},{"1":"20","2":"48"},{"1":"20","2":"52"},{"1":"20","2":"56"},{"1":"20","2":"64"},{"1":"22","2":"66"},{"1":"23","2":"54"},{"1":"24","2":"70"},{"1":"24","2":"92"},{"1":"24","2":"93"},{"1":"24","2":"120"},{"1":"25","2":"85"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="d1-01-intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Since we have two lines with two different outputs, the Quarto notebook shows them as panes you can swap back and forth. The rendered page shows each line of code, then its output.</p>
+<ul>
+<li>The <code>data.frame</code> part is printing out data. There is a lot of information available in that printout, including the number of rows (we call them observations) and columns (we call them variables), the names of those columns/variables, the data types of each variable, and then their values. We call data like this a “data frame” or “tibble”. It’s like a highly structured spreadsheet.</li>
+<li>The second pane is a chart (or plot as we call them). The function <code>plot()</code> took the only two variables in the data and, well, plotted them.</li>
+</ul>
+<p>Yes, it can be that easy to visualize data in R. But not usually.</p>
 </section>
-<section id="select-columns" class="level2">
-<h2 class="anchored" data-anchor-id="select-columns">Select columns</h2>
-<p>Info about doing it. Example with Texas.</p>
-<section id="oyo-select" class="level3">
-<h3 class="anchored" data-anchor-id="oyo-select">OYO: Select</h3>
-<p>Directions to do on your own with another state.</p>
+<section id="oyo-re-render-this-page-one-last-time" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-re-render-this-page-one-last-time">OYO: Re-render this page one last time</h3>
+<p>Now that you’ve been introduced to how a Quarto document is written, go ahead and re-render this page by using the Render button or <em>Cmd-shift-k</em>.</p>
 
 
 </section>

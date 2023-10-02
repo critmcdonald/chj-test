@@ -19,12 +19,16 @@ website:
       - section: "Practice"
         contents:
           - practice/p1-intro.qmd
+      - section: "Resources"
+        contents:
+          - lessons/functions.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    df-print: paged
 
 
 
