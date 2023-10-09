@@ -1,0 +1,32 @@
+---
+title: "Practice Day 1"
+---
+
+> This will be updated once I figure out the lesson. Basically start with the answers and then strip it down.
+
+This is the notebook fellows will work through on the first day of the Center for Health Journalism Hands-On R course.
+
+You will be using daily weather summaries pulled from [Climate Data Online](). You can choose to work with data from Arkansas, California or Texas. The explanations use Texas.
+
+## Setup
+
+This is the section for libraries.
+
+```{r}
+
+```
+
+## Import
+
+Follow the directions in the book to import your data. 
+
+
+## Selecting column
+
+Use this section to create a "tight" version of your data with only the columns you need.
+
+
+## Mutate?
+
+Perhaps at this point
+

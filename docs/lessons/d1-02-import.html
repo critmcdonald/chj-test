@@ -181,11 +181,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../practice/p1-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practice Intro</span></a>
-  </div>
-</li>
+ <span class="menu-text">practice/p1-intro.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -216,13 +213,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#goals-of-this-lesson" id="toc-goals-of-this-lesson" class="nav-link active" data-scroll-target="#goals-of-this-lesson">Goals of this lesson</a></li>
+  <li><a href="#open-the-practice-file" id="toc-open-the-practice-file" class="nav-link" data-scroll-target="#open-the-practice-file">Open the practice file</a></li>
   <li><a href="#packages-and-libraries" id="toc-packages-and-libraries" class="nav-link" data-scroll-target="#packages-and-libraries">Packages and libraries</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
   <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing data</a></li>
   <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects">Objects</a>
   <ul class="collapse">
-  <li><a href="#oyo-import" id="toc-oyo-import" class="nav-link" data-scroll-target="#oyo-import">OYO: Import</a></li>
   <li><a href="#more-about-readr" id="toc-more-about-readr" class="nav-link" data-scroll-target="#more-about-readr">More about readr</a></li>
+  <li><a href="#oyo-import" id="toc-oyo-import" class="nav-link" data-scroll-target="#oyo-import">OYO: Import</a></li>
   </ul></li>
   <li><a href="#piping-and-peeking" id="toc-piping-and-peeking" class="nav-link" data-scroll-target="#piping-and-peeking">Piping and peeking</a>
   <ul class="collapse">
@@ -272,15 +270,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="goals-of-this-lesson" class="level2">
 <h2 class="anchored" data-anchor-id="goals-of-this-lesson">Goals of this lesson</h2>
-<p>This second lesson will look more like a traditional data project.</p>
-<ul>
-<li>We’ll talk about libraries and functions</li>
-<li>We’ll import some data to work with</li>
-</ul>
-<p>Some code is pre-written with explanations of what it does. You’ll also write your own code with mini quests.</p>
-<p>Feel free to <strong>Render</strong> this document using the button above or <em>Cmd-shift-k</em>.</p>
-<p>Every notebook you start should have a headline and text at the top, like this one, explaining the goal of what you are doing.</p>
-<p>For this lesson we’ll be using weather data – daily temperature and precipitation readings – to learn about using R and RStudio.</p>
+<p>In this second lesson we will work through building a notebook where you import data, manipulate it and do some analysis. While you may be viewing these directions online, know they are in the project in the <code>lessons/</code> folder. You’ll build your notebook in another file in <code>practice/practice-day.qmd</code>. You’ll be given some pre-written code with explanations of what it does. You’ll also write your own code with mini quests.</p>
+<p>For this lesson we’ll be using daily weather summaries from <a href="https://www.ncei.noaa.gov/cdo-web/datasets">Climate Data Online</a> – daily temperature and precipitation readings – to learn about using R and RStudio.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -291,13 +282,25 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Within a project I typically have one notebook for downloading and cleaning my data, and then another notebook for analyzing my data. There are advantages we don’t have time to get into, but know consistent project organization is important.</p>
+<p>Within a project I typically have one notebook for downloading and cleaning my data, and then another notebook for analyzing my data. Since this is a guided training, the organization of this project is a little different. We’ll walk through building a new project a little later.</p>
 </div>
 </div>
 </section>
+<section id="open-the-practice-file" class="level2">
+<h2 class="anchored" data-anchor-id="open-the-practice-file">Open the practice file</h2>
+<p>Let’s get started.</p>
+<ol type="1">
+<li>Make sure the Files page is open at the bottom right.</li>
+<li>Click on the gear icon and choose <strong>Go To Working Directory</strong>. This takes us to our training project folder so we know where everything is.</li>
+<li>Click into the <code>practice/</code> folder</li>
+<li>Double-click on the <code>practice-day.qmd</code> file to open it.</li>
+</ol>
+<p>Every notebook you start should have a headline and text at the top, like this one, explaining the goal of what you are doing. This is written in Markdown, like all your comments to yourself.</p>
+<p>In this case, the main headline is in what we call <strong>metadata</strong>, written in YAML. There are a number of document settings you could add here, but we’ll get into that later.</p>
+</section>
 <section id="packages-and-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="packages-and-libraries">Packages and libraries</h2>
-<p>After the goals in a notebook, the next thing to have is the libraries you’ll use. While there is a lot of functionality baked into R, users can also write and package pre-written code into libraries. Different libraries have different “functions” that we use to manipulate our data in some way. Learning these functions IS programming.</p>
+<p>After the goals in a notebook, the next thing to have is the libraries you’ll use. While there is a lot of functionality baked into R, users can also write and package pre-written code into libraries. Different libraries have different “functions” that we use to manipulate our data in some way. Learning how to use these functions IS programming.</p>
 <p>We almost always load the <a href="https://www.tidyverse.org/">tidyverse</a> library which is actually a collection of libraries, including:</p>
 <ul>
 <li><a href="https://readr.tidyverse.org/">readr</a> has functions that import and export data</li>
@@ -307,32 +310,74 @@ Tip
 <li><a href="https://ggplot2.tidyverse.org/">ggplot</a> helps us visualize data through charts</li>
 </ul>
 <p>We’ll use functions from all of these libraries, but they come in the one big toolbox, tidyverse.</p>
-<p>Here is how we set up the library, and it is usually the first code chunk you’ll have in your notebook.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We’ll use another function from another library, <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">janitor</a> to standardize some column names.</p>
+<p>Here is how we set up the libraries. It is usually the first code chunk you’ll have in your notebook.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<ol type="1">
-<li>Run the code block above using either the play button inside your Quarto document, or by placing your cursor in the code chunk and using <em>Cmd-shift-return</em> on your keyboard.</li>
-</ol>
-<p>This code chunk has two special <a href="https://quarto.org/docs/computations/execution-options.html">execution options</a> that affect how the code works. You can only see them inside the Quarto notebook; they do not display on the rendered page.</p>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The code block below is displayed online in a special way to show you the tick marks, language designation and some execution options that are explained below. Usually the online directions only show the code inside the block.</p>
+</div>
+</div>
+<p>This code chunk below has two special <a href="https://quarto.org/docs/computations/execution-options.html">execution options</a> that affect how the code works.</p>
 <ul>
 <li><code>label: setup</code> gives this chunk a special name that tells RStudio to run this block before any other if it hasn’t been run already.</li>
 <li><code>message: false</code> suppresses the usual messages we see in our notebook after loading libraries. Usually we want to see these messages, but not on this chunk because they are standard. Plus, I wanted to show you how the options work.</li>
 </ul>
 <p>Execution options are not required, but those two are useful for our libraries chunk. That’s often the only place I use any.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>In your practice notebook after the <code>## Libraries</code> headline, add a new code chunk. You can use the keyboard command <em>Cmd+option+i</em> or the green <code>+C</code> icon in the notebook toolbar.</li>
+<li>Copy the contents of the code block listed above and put it inside your code block. Include the execution options.</li>
+<li>Run the code block above using either the play button inside your Quarto document, or by placing your cursor in the code chunk and using <em>Cmd-shift-return</em> on your keyboard.</li>
+</ol>
+<p>You’ll see a flash of green but you won’t see any feedback in your notebook because we suppressed it.</p>
 </section>
 <section id="functions" class="level2">
 <h2 class="anchored" data-anchor-id="functions">Functions</h2>
-<p>That <code>library()</code> command above is what we call a <strong>function</strong> in R, and it is similar to formulas in a spreadsheet. They are the “verbs” of R where all the action happens.</p>
-<p>Inside the parenthesis of the function we add arguments, and the first argument is usually what data we are inserting into the function. There can be options to control the function.</p>
-<p><code>function(data, options = "value")</code></p>
+<p>Those <code>library()</code> command used above is what we call a <strong>function</strong> in R, and it is similar to formulas in a spreadsheet. They are the “verbs” of R where all the action happens.</p>
+<p>Inside the parenthesis of the function we add arguments. In that library function it needed to know which package to load. Usually the first argument what data we are inserting into the function. There can be other options to control the function.</p>
+<p><code>function(data, option_name = "value")</code></p>
 <p>We can also string these functions together, taking the result of one and piping it into the next function. We’ll do that soon.</p>
 </section>
 <section id="importing-data" class="level2">
 <h2 class="anchored" data-anchor-id="importing-data">Importing data</h2>
-<p>We use functions from the <a href="https://readr.tidyverse.org/">readr</a> package to import our data. You choose which function to use based on the format of the data you are trying to import.</p>
-<p>The data we have prepared for you here is in “csv” format, or comma separated values. Our notebook is stored inside a<code>lessons/</code> folder in our project, and our data is right next to it in <code>lessons/data/</code>. You can use the Files pane to see it.</p>
-<p>Here, we import the <code>tx.csv</code> file to look at it.</p>
+<p>We use functions from the <a href="https://readr.tidyverse.org/">readr</a> library to import our data. We choose which function based on the format of the data we are trying to import.</p>
+<p>The data I have prepared for you here is in “csv” format, or comma separated values. Our notebook is stored inside a <code>practice/</code> folder in our project, and our data is right next to it in <code>practice/data/</code>. You can use the Files pane to see the files there.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this lesson I’m using the <code>tx.csv</code> file, but you could use one of the other states listed there is you like. Your results will differ and you’ll want to pay attention to object names, but it might be more fun.</p>
+</div>
+</div>
+<ol type="1">
+<li>After the <code>## Import</code> headline and description there, insert a new code chunk.</li>
+<li>Type in <code>read_csv()</code> into the code chunk. You’ll see type-assist trying help you.</li>
+<li>Once that is there, put your cursor in between the parenthesis (if it isn’t already) and type in an opening quote <code>"</code>. You’ll see that the closing quote is automatically added and your cursor is again put in the middle of them.</li>
+<li>type in <code>data/</code> and then hit <em>tab</em> on your keyboard. You should see a menu pop up with the available files. Choose <code>tx.csv</code> or another state of your choice.</li>
+<li>Once your code looks like what I have below, Run the chunk.</li>
+</ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data/tx.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -355,19 +400,20 @@ date (1): DATE
 </div>
 </div>
 </div>
-<p>We get two outputs here:</p>
+<p>We get two outputs here in our notebook:</p>
 <ul>
 <li>The R Console pane shows messages about our import</li>
 <li>The second pane shows our data</li>
 </ul>
-<p>Like when we printed out our <code>cars</code> in the Introduction, we can see all number of observations and variables, along with their names and data types.</p>
+<p>Like when we printed out our <code>cars</code> in the Introduction, we can see the number of observations and variables, along with their names and data types.</p>
 <p>However, that data is only printing to our screen. It hasn’t been saved and we can’t reuse it. That’s next.</p>
 </section>
 <section id="objects" class="level2">
 <h2 class="anchored" data-anchor-id="objects">Objects</h2>
 <p>To save something in our R environment to reuse it, we create an “object”. We name the object first, then use <code>&lt;-</code> to fill it with our data. It’s like you must have a bucket first before you can fill it with water.</p>
 <ol type="1">
-<li>Run the code chunk below</li>
+<li><strong>Edit your import code block</strong> to add the <code>tx &lt;-</code> part shown below</li>
+<li>Re-run the chunk. Again, <em>Cmd+shift+return</em> will run the entire chunk.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tx <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/tx.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -401,19 +447,20 @@ Tip
 <p>Normally we would not use two code chunks to read and then save our data. We would just edit the first chunk once we know our <code>read_csv()</code> was successful.</p>
 </div>
 </div>
-<section id="oyo-import" class="level3">
-<h3 class="anchored" data-anchor-id="oyo-import">OYO: Import</h3>
-<p>Here I want you to import weather data from a different state and save it into an object. Look in the <code>lessons/data/</code> folder to see the files to choose from.</p>
-<ol type="1">
-<li>After these directions but before the next headline, add a new code chunk.</li>
-<li>Use the <code>read_csv()</code> command to read in your data and run it to make sure it works.</li>
-<li>Edit that same chunk to save your data into a new object. Make sure you see it in your <strong>Environment</strong> tab.</li>
-<li>Add some notes in text to tell your future self what you’ve done.</li>
-</ol>
-</section>
 <section id="more-about-readr" class="level3">
 <h3 class="anchored" data-anchor-id="more-about-readr">More about readr</h3>
 <p>There is a cheatsheet in the <a href="https://readr.tidyverse.org/">readr documentation</a> that outlines functions to import different kinds of data. There are also options for things like skipping lines, renaming columns and other common challenges.</p>
+</section>
+<section id="oyo-import" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-import">OYO: Import</h3>
+<p>Here I want you to import weather data from a different state and save it into an object. Look in the <code>lessons/data/</code> folder to see the files to choose from, perhaps from your state.</p>
+<ol type="1">
+<li>After these directions but before the next headline, add a new code chunk.</li>
+<li>Use the <code>read_csv()</code> command to read in your data and run it to make sure it works.</li>
+<li><strong>Edit that same chunk</strong> to save your data into a new object. Make sure you see it in your <strong>Environment</strong> tab.</li>
+<li>Add a new line with your new object so it will print out so you can see it.</li>
+<li>Add some notes in text to tell your future self what you’ve done.</li>
+</ol>
 </section>
 </section>
 <section id="piping-and-peeking" class="level2">
@@ -454,8 +501,8 @@ Tip
 <p>You can’t start a new line with a pipe. If you are breaking your code into multiple lines, then the <code>|&gt;</code> needs to be at the end of a line and the next line should be indented so there is a visual clue it is related to line above it, like this:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tx <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>It might look like there are no arguments inside <code>head()</code>, but what we are actually doing is passing the <code>tx</code> tibble into it like this: <code>head(tx)</code>. For almost every function in R the first argument is “what data are you taking about?” The pipe allows us to say “hey, take the data we just mucked with (i.e., the code before the pipe) and use that in this function.”</p>
-<p>Can can add other arguments to the new function. For instance, we can tell <code>head()</code> how many lines to print:</p>
+<p>It might look like there are no arguments inside <code>head()</code>, but what we are actually doing is passing the <code>tx</code> tibble into it like this: <code>head(tx)</code>. For a lot of functions in R the first argument is “what data are you taking about?” The pipe allows us to say “hey, take the data we just mucked with (i.e., the code before the pipe) and use that in this function.”</p>
+<p>You can add other arguments to the new function. For instance, we can tell <code>head()</code> how many lines to print:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tx <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -484,7 +531,7 @@ Tip
 <section id="a-rabbit-dives-into-a-pipe" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="a-rabbit-dives-into-a-pipe">A rabbit dives into a pipe</h3>
 <p>The concept of the pipe was first introduced by tidyverse developers in 2014 in a package called <a href="https://magrittr.tidyverse.org/">magrittr</a>. They used the symbol <code>%&gt;%</code> as the pipe. It was so well received the concept was written directly into base R in <strong>2021</strong>, but using the symbol <code>|&gt;</code>. Hadley Wickham’s 2022 rewriting of <a href="https://r4ds.hadley.nz/workflow-pipes.html#magrittr-and-the-pipe">R for Data Science</a> uses the base R pipe <code>|&gt;</code> by default. You can configure which to use in RStudio.</p>
-<p>(This switch to <code>|&gt;</code> is quite recent so you will see <code>%&gt;%</code> used in our lectures and in documentation online. <strong>Assume <code>|&gt;</code> and <code>%&gt;%</code> are interchangeable.</strong> There is A LOT of code in the wild using the magrittr pipe <code>%&gt;%</code>, so you’ll find many references on Stack Overflow and elsewhere.)</p>
+<p>This switch to <code>|&gt;</code> is quite recent so you will still see <code>%&gt;%</code> used in our training and in documentation online. <strong>Assume <code>|&gt;</code> and <code>%&gt;%</code> are interchangeable.</strong></p>
 </section>
 </section>
 <section id="glimpse" class="level2">
@@ -510,7 +557,7 @@ $ TOBS    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86
 <p>This is super handy to have because you can see all your variable names in the same screen. I use it all the time.</p>
 <section id="oyo-peek-at-your-data" class="level3">
 <h3 class="anchored" data-anchor-id="oyo-peek-at-your-data">OYO: Peek at your data</h3>
-<p>I’d like you to use your own data set to use the <code>head()</code>, <code>glimpse()</code> functions and the <code>|&gt;</code> operator.</p>
+<p>I’d like you to use your own weather data object to use the <code>head()</code>, <code>glimpse()</code> functions and the <code>|&gt;</code> operator.</p>
 <ol type="1">
 <li>In the space below these directions but before the next headline, add some text that you are looking at the top of your data, and then create code chunk and print the first 30 lines of your data.</li>
 <li>After you’ve done that, add some text that you’ll glimpse your data, then add a second code chunk and do just that.</li>
@@ -519,7 +566,40 @@ $ TOBS    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86
 </section>
 <section id="select-columns" class="level2">
 <h2 class="anchored" data-anchor-id="select-columns">Select columns</h2>
-<p>Info about doing it. Example with Texas.</p>
+<p>Different weather stations can offer different data, and we are just concerned with some specific variables in or data. We can use the <a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a> command to keep or drop columns.</p>
+<p>The columns we want are NAME, DATE, PRCP, SNOW, SNWD, TMIN, TMAX. We don’t need TOBS or TAVG, and in some states they have others we don’t need.</p>
+<p>I’m showing multiple lines of code here, but we write and run it in steps:</p>
+<ul>
+<li>We take our tx_raw data and pipe it into select.</li>
+<li>We enter the names we want to keep THEN RUN THE CODE. We want to make sure it works.</li>
+<li>Then we add a new object name <code>tx_tight &lt;-</code> before our existing code AND RUN IT.</li>
+<li>Then we add a new line to take our new object and glimpse it.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="ot">&lt;-</span> tx <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    NAME,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    DATE,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    PRCP,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    SNOW,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    SNWD,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    TMIN,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    TMAX</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 94,475
+Columns: 7
+$ NAME &lt;chr&gt; "HOUSTON WILLIAM P HOBBY AIRPORT, TX US", "HOUSTON WILLIAM P HOBB…
+$ DATE &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1930…
+$ PRCP &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, NA,…
+$ SNOW &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ SNWD &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ TMIN &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70, 7…
+$ TMAX &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97, 9…</code></pre>
+</div>
+</div>
 <section id="oyo-select" class="level3">
 <h3 class="anchored" data-anchor-id="oyo-select">OYO: Select</h3>
 <p>Directions to do on your own with another state.</p>
