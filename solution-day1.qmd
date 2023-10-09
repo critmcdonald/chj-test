@@ -1,0 +1,88 @@
+---
+title: "Practice Day 1 Answers"
+---
+
+This is the notebook fellows will work through on the first day of the Center for Health Journalism Hands-On R course.
+
+You will be using daily weather summaries that have been downloaded  from [Climate Data Online](https://www.ncei.noaa.gov/cdo-web/datasets). You can choose to work with data from Arkansas, California or Texas. The explanations use Texas, but you may use one of the other files available.
+
+## Setup
+
+This is the section for libraries.
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+## Import
+
+Follow the directions in the book to import your data. 
+
+```{r}
+tx_raw <- read_csv("data-raw/tx.csv") |> clean_names()
+
+tx_raw |> head()
+```
+
+And now glimpse the data
+
+```{r}
+tx_raw |> glimpse()
+```
+
+## Select
+
+Use this section to create a "tight" version of your data with only the columns you need.
+
+```{r}
+tx_tight <- tx_raw |> 
+  select(
+    name,
+    date,
+    prcp,
+    snow,
+    snwd,
+    tmax,
+    tmin
+  )
+
+tx_tight |> glimpse()
+```
+
+## Arrange
+
+Find the coldest day, warmest day, most snow, most rain.
+
+## Mutate
+
+Create a year value.
+
+## Filter
+
+Choose a city, save as new. Find days with snow.
+
+## Group and Summarize: Count
+
+Find the years with the most snow days. Find the years with the most 100+ degree days.
+
+## Group and Summarize: Math
+
+Years with most rain. Years with most snow.
+
+## Recode
+
+Go back and shorten your station names.
+
+```{r}
+tx_tight |> 
+  group_by(name) |> 
+  slice_max(tmax)
+
+tx_tight |> 
+  group_by(name) |> 
+  slice_min(tmin)
+```
+
+
+

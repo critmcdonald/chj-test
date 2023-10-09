@@ -158,13 +158,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lessons/d1-01-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../lesson-day1-01-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lessons/d1-02-import.html" class="sidebar-item-text sidebar-link">
+  <a href="../lesson-day1-02-import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importing &amp; Cleaning</span></a>
   </div>
 </li>
@@ -180,14 +180,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">practice/p1-intro.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../practice-day1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice Day 1</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Resources</span></a>
+ <span class="menu-text">Solutions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -195,7 +198,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lessons/functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../solution-day1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice Day 1 Answers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Functions</span></a>
   </div>
 </li>
@@ -301,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import" class="level2">
 <h2 class="anchored" data-anchor-id="import">Import</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ca_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../lessons/data/ca.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ca_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data-raw/ca.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
 e.g.:
@@ -320,7 +340,7 @@ date (1): DATE
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../lessons/data/tx.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data-raw/tx.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 94475 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
@@ -332,7 +352,7 @@ date (1): DATE
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nc_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../lessons/data/nc.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nc_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data-raw/nc.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 87400 Columns: 9
 ── Column specification ────────────────────────────────────────────────────────

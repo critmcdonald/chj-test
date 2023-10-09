@@ -55,9 +55,9 @@ library(janitor)
 ## Import
 
 ```{r}
-ca_raw <- read_csv("../lessons/data/ca.csv") |> clean_names()
-tx_raw <- read_csv("../lessons/data/tx.csv") |> clean_names()
-nc_raw <- read_csv("../lessons/data/nc.csv") |> clean_names()
+ca_raw <- read_csv("../data-raw/ca.csv") |> clean_names()
+tx_raw <- read_csv("../data-raw/tx.csv") |> clean_names()
+nc_raw <- read_csv("../data-raw/nc.csv") |> clean_names()
 ```
 
 

@@ -1,0 +1,263 @@
+---
+title: "Importing & Cleaning"
+author: "Christian McDonald"
+---
+
+## Goals of this lesson
+
+In this second lesson we will work through building a notebook where you import data, manipulate it and do some analysis. While you may be viewing these directions online, know they are in the project in the `lessons/` folder. You'll build your notebook in another file in `practice/practice-day.qmd`. You'll be given some pre-written code with explanations of what it does. You'll also write your own code with mini quests.
+
+For this lesson we'll be using daily weather summaries from [Climate Data Online](https://www.ncei.noaa.gov/cdo-web/datasets) -- daily temperature and precipitation readings -- to learn about using R and RStudio.
+
+::: callout-tip
+Within a project I typically have one notebook for downloading and cleaning my data, and then another notebook for analyzing my data.  Since this is a guided training, the organization of this project is a little different. We'll walk through building a new project a little later.
+:::
+
+## Open the practice file
+
+Let's get started.
+
+1. Make sure the Files page is open at the bottom right.
+2. Click on the gear icon and choose **Go To Working Directory**. This takes us to our training project folder so we know where everything is.
+3. Click into the `practice/` folder
+4. Double-click on the `practice-day.qmd` file to open it.
+
+Every notebook you start should have a headline and text at the top, like this one, explaining the goal of what you are doing. This is written in Markdown, like all your comments to yourself.
+
+In this case, the main headline is in what we call **metadata**, written in YAML. There are a number of document settings you could add here, but we'll get into that later.
+
+## Packages and libraries
+
+After the goals in a notebook, the next thing to have is the libraries you'll use. While there is a lot of functionality baked into R, users can also write and package pre-written code into libraries. Different libraries have different "functions" that we use to manipulate our data in some way. Learning how to use these functions IS programming.
+
+We almost always load the [tidyverse](https://www.tidyverse.org/) library which is actually a collection of libraries, including:
+
+- [readr](https://readr.tidyverse.org/) has functions that import and export data
+- [dplyr](https://dplyr.tidyverse.org/) functions manipulate data, like sorting and filtering
+- [stringr](https://stringr.tidyverse.org/) helps us work with text
+- [tidyr](https://tidyr.tidyverse.org/) helps us shape data for different purposes
+- [ggplot](https://ggplot2.tidyverse.org/) helps us visualize data through charts
+
+We'll use functions from all of these libraries, but they come in the one big toolbox, tidyverse.
+
+We'll use another function from another library, [janitor](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html) to standardize some column names. 
+
+Here is how we set up the libraries. It is usually the first code chunk you'll have in your notebook. 
+
+::: callout-tip
+The code block below is displayed online in a special way to show you the tick marks, language designation and some execution options that are explained below. Usually the online directions only show the code inside the block.
+:::
+
+This code chunk below has two special [execution options](https://quarto.org/docs/computations/execution-options.html) that affect how the code works.
+
+- `label: setup` gives this chunk a special name that tells RStudio to run this block before any other if it hasn't been run already.
+- `message: false` suppresses the usual messages we see in our notebook after loading libraries. Usually we want to see these messages, but not on this chunk because they are standard. Plus, I wanted to show you how the options work.
+
+Execution options are not required, but those two are useful for our libraries chunk. That's often the only place I use any.
+
+```{r}
+#| label: setup
+#| message: false
+#| echo: fenced
+
+library(tidyverse)
+library(janitor)
+```
+
+1. In your practice notebook after the `## Libraries` headline, add a new code chunk. You can use the keyboard command *Cmd+option+i* or the green `+C` icon in the notebook toolbar.
+2. Copy the contents of the code block listed above and put it inside your code block. Include the execution options.
+3. Run the code block above using either the play button inside your Quarto document, or by placing your cursor in the code chunk and using *Cmd-shift-return* on your keyboard.
+
+You'll see a flash of green but you won't see any feedback in your notebook because we suppressed it.
+
+## Functions
+
+Those `library()` command used above is what we call a **function** in R, and it is similar to formulas in a spreadsheet. They are the "verbs" of R where all the action happens.
+
+Inside the parenthesis of the function we add arguments. In that library function it needed to know which package to load. Usually the first argument what data we are inserting into the function. There can be other options to control the function.
+
+`function(data, option_name = "value")`
+
+We can also string these functions together, taking the result of one and piping it into the next function. We'll do that soon.
+
+## Importing data
+
+We use functions from the [readr](https://readr.tidyverse.org/) library to import our data. We choose which function based on the format of the data we are trying to import.
+
+The data I have prepared for you here is in "csv" format, or comma separated values. Our notebook is stored inside a `practice/` folder in our project, and our data is right next to it in `practice/data/`. You can use the Files pane to see the files there.
+
+::: callout-important
+In this lesson I'm using the `tx.csv` file, but you could use one of the other states listed there is you like. Your results will differ and you'll want to pay attention to object names, but it might be more fun.
+:::
+
+1. After the `## Import` headline and description there, insert a new code chunk.
+2. Type in `read_csv()` into the code chunk. You'll see type-assist trying help you.
+3. Once that is there, put your cursor in between the parenthesis (if it isn't already) and type in an opening quote `"`. You'll see that the closing quote is automatically added and your cursor is again put in the middle of them.
+4. type in `data/` and then hit *tab* on your keyboard. You should see a menu pop up with the available files. Choose `tx.csv` or another state of your choice.
+5. Once your code looks like what I have below, Run the chunk.
+
+```{r}
+read_csv("data-raw/tx.csv")
+```
+
+We get two outputs here in our notebook:
+
+- The R Console pane shows messages about our import
+- The second pane shows our data
+
+Like when we printed out our `cars` in the Introduction, we can see the number of observations and variables, along with their names and data types.
+
+However, that data is only printing to our screen. It hasn't been saved and we can't reuse it. That's next.
+
+## Objects
+
+To save something in our R environment to reuse it, we create an "object". We name the object first, then use `<-` to fill it with our data. It's like you must have a bucket first before you can fill it with water.
+
+1. **Edit your import code block** to add the `tx_raw <-` part shown below
+2. Re-run the chunk. Again, *Cmd+shift+return* will run the entire chunk.
+
+```{r}
+tx_raw <- read_csv("data-raw/tx.csv")
+```
+
+- We still get messages about our input
+- But instead of printing our data to the screen, we have saved it into `tx_raw`.
+- If you look at your **Environment** pane at the top-right of RStudio, you'll see your saved object listed there.
+
+::: callout-tip
+Normally we would not use two code chunks to read and then save our data. We would just edit the first chunk once we know our `read_csv()` was successful.
+:::
+
+### More about readr
+
+There is a cheatsheet in the [readr documentation](https://readr.tidyverse.org/) that outlines functions to import different kinds of data. There are also options for things like skipping lines, renaming columns and other common challenges.
+
+### OYO: Import
+
+Here I want you to import weather data from a different state and save it into an object. Look in the `lessons/data/` folder to see the files to choose from, perhaps from your state.
+
+1. After these directions but before the next headline, add a new code chunk.
+2. Use the `read_csv()` command to read in your data and run it to make sure it works.
+3. **Edit that same chunk** to save your data into a new object. Make sure you see it in your **Environment** tab.
+4. Add a new line with your new object so it will print out so you can see it.
+45. Add some notes in text to tell your future self what you've done.
+
+## Piping and peeking
+
+Now that we have data saved into our environment, let's talk about different ways to look at it.
+
+We've already shown you can just run the object in a code block to see the first 1000 lines:
+
+```{r}
+tx_raw
+```
+
+But we can also "pipe" our data into other functions to look at just part of it. 
+
+Here we use the native R "pipe" command `|>` to take the result of `tx` and pass it to a function called `head()`.
+
+```{r}
+tx_raw |> head()
+```
+
+### About the pipe \|\>
+
+The pipe is a construct that takes the **result** of an object or function and passes it into another function. Think of it like a sentence that says **"AND THEN"** the next thing.
+
+Like this:
+
+``` r
+I woke up |> 
+  got out of bed |>
+  dragged a comb across my head
+```
+
+You can't start a new line with a pipe. If you are breaking your code into multiple lines, then the `|>` needs to be at the end of a line and the next line should be indented so there is a visual clue it is related to line above it, like this:
+
+``` r
+tx |> 
+  head()
+```
+
+It might look like there are no arguments inside `head()`, but what we are actually doing is passing the `tx` tibble into it like this: `head(tx)`. For a lot of functions in R the first argument is "what data are you taking about?" The pipe allows us to say "hey, take the data we just mucked with (i.e., the code before the pipe) and use that in this function."
+
+You can add other arguments to the new function. For instance, we can tell `head()` how many lines to print:
+
+```{r}
+tx_raw |> head(20)
+```
+
+::: callout-tip
+There is a keyboard command for the pipe `|>`: **Cmd+Shift+m**. Learn that one!
+:::
+
+### A rabbit dives into a pipe {.unnumbered}
+
+The concept of the pipe was first introduced by tidyverse developers in 2014 in a package called [magrittr](https://magrittr.tidyverse.org/). They used the symbol `%>%` as the pipe. It was so well received the concept was written directly into base R in **2021**, but using the symbol `|>`. Hadley Wickham's 2022 rewriting of [R for Data Science](https://r4ds.hadley.nz/workflow-pipes.html#magrittr-and-the-pipe) uses the base R pipe `|>` by default. You can configure which to use in RStudio.
+
+This switch to `|>` is quite recent so you will still see `%>%` used in our training and in documentation online. **Assume `|>` and `%>%` are interchangeable.**
+
+## Glimpse
+
+The `glimpse()` function allows you to look at your data in another way ... to see all the variables and their data types, no matter how many there are.
+
+```{r}
+tx_raw |> glimpse()
+```
+
+This is super handy to have because you can see all your variable names in the same screen. I use it all the time.
+
+### OYO: Peek at your data
+
+In your notebook in the import 
+1. In the space below these directions but before the next headline, add some text that you are looking at the top of your data, and then create code chunk and print the first 30 lines of your data.
+2. After you've done that, add some text that you'll glimpse your data, then add a second code chunk and do just that.
+
+
+
+
+
+
+
+## Select columns
+
+Different weather stations can offer different data, and we are just concerned with some specific variables in or data. We can use the [`select()`](https://dplyr.tidyverse.org/reference/select.html) command to keep or drop columns.
+
+The columns we want are NAME, DATE, PRCP, SNOW, SNWD, TMIN, TMAX. We don't need TOBS or TAVG, and in some states they have others we don't need.
+
+I'm showing multiple lines of code here, but we write and run it in steps:
+
+- We take our tx_raw data and pipe it into select.
+- We enter the names we want to keep THEN RUN THE CODE. We want to make sure it works.
+- Then we add a new object name `tx_tight <-` before our existing code AND RUN IT.
+- Then we add a new line to take our new object and glimpse it.
+
+```{r}
+tx_tight <- tx_raw |> 
+  select(
+    NAME,
+    DATE,
+    PRCP,
+    SNOW,
+    SNWD,
+    TMIN,
+    TMAX
+  )
+
+tx_tight |> glimpse()
+```
+
+
+
+
+### OYO: Select
+
+Directions to do on your own with another state.
+
+## Export your data
+
+### OYO: Write out your data
+
+
+
+

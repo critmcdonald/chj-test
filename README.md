@@ -1,7 +1,16 @@
-# CHJ test
+# CHJR Part 1
 
-Test from README.
+With these lessons we'll learn about:
 
-- [To the first lessson](https://critmcdonald.github.io/chj-test/lessons/d1-01-intro.html)
-- [To a slide deck](https://critmcdonald.github.io/chj-test/slides/01-slide-test.html)
+- Project management
+- Importing and exporting data
+- Basic data wrangling
+
+## Day 1
+
+- [To the first lesson](https://critmcdonald.github.io/chjr-part1/lesson-day1-01.html)
+
+Slide resources:
+
+- [To a slide deck](https://critmcdonald.github.io/chj-part1/slides/sd1-01-intro.html)
 
