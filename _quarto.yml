@@ -18,12 +18,12 @@ website:
           - lesson-day2-01-analysis.qmd
       - section: "Practice"
         contents:
-          - practice-day1.qmd
-          - practice-day2.qmd
+          - practice-day1-clean.qmd
+          - practice-day2-analysis.qmd
       - section: "Solutions"
         contents:
-          - solution-day1.qmd
-          - solution-day2.qmd
+          - solution-day1-clean.qmd
+          - solution-day2-analysis.qmd
       - section: "Resources"
         contents:
           - resources/functions.qmd
