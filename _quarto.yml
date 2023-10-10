@@ -7,23 +7,27 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "Home"
+      - section: "CHJR Part 1"
         contents:
-          - text: About
+          - text: Home
             url: index.qmd
       - section: "Lessons"
         contents:
           - lesson-day1-01-intro.qmd
-          - lesson-day1-02-import.qmd
+          - lesson-day1-02-clean.qmd
+          - lesson-day2-01-analysis.qmd
       - section: "Practice"
         contents:
           - practice-day1.qmd
+          - practice-day2.qmd
       - section: "Solutions"
         contents:
           - solution-day1.qmd
+          - solution-day2.qmd
       - section: "Resources"
         contents:
           - resources/functions.qmd
+          - resources/projects.qmd
 
 format:
   html:

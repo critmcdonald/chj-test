@@ -1,0 +1,18 @@
+---
+title: "Managing a project"
+---
+
+Some tips and demos about working with projects.
+
+## Goals
+
+- Why projects are important
+- How to build a Quarto project
+    - About the _quarto.yml file.
+- How to build a Quarto website
+    - Renaming pages
+    - adding df-print
+    - Working with navigation
+    - Publishing to Quarto Pub
+- If you use Github
+

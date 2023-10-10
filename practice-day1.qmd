@@ -2,7 +2,7 @@
 title: "Practice Day 1"
 ---
 
-> This will be updated once I figure out the lesson. Basically start with the answers and then strip it down.
+> This will be updated once I figure out the lesson. Basically start with the solution and then strip it down to add here.
 
 This is the notebook fellows will work through on the first day of the Center for Health Journalism Hands-On R course.
 
@@ -10,7 +10,7 @@ You will be using daily weather summaries pulled from [Climate Data Online](). Y
 
 ## Setup
 
-This is the section for libraries.
+This is the section for libraries. Add the tidyverse and janitor libraries.
 
 ```{r}
 

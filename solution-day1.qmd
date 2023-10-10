@@ -1,88 +1,145 @@
 ---
-title: "Practice Day 1 Answers"
+title: "Solutions Day 1"
 ---
 
 This is the notebook fellows will work through on the first day of the Center for Health Journalism Hands-On R course.
 
 You will be using daily weather summaries that have been downloaded  from [Climate Data Online](https://www.ncei.noaa.gov/cdo-web/datasets). You can choose to work with data from Arkansas, California or Texas. The explanations use Texas, but you may use one of the other files available.
 
+## Goals
+
+Our goals are to:
+
+- Import our data.
+- Check all the column data types.
+- Add some new columns based on the date.
+- Remove some unnecessary variables/columns.
+- Export our cleaned data.
+
 ## Setup
 
 This is the section for libraries.
 
 ```{r}
+#| label: setup
+#| message: false
+
 library(tidyverse)
 library(janitor)
 ```
 
 ## Import
 
-Follow the directions in the book to import your data. 
+Follow the directions in the lesson to import your data. 
 
 ```{r}
 tx_raw <- read_csv("data-raw/tx.csv") |> clean_names()
 
-tx_raw |> head()
+head(tx_raw)
 ```
 
-And now glimpse the data
+And then glimpse the data.
 
 ```{r}
 tx_raw |> glimpse()
 ```
+### OYO: Import a different state
+
+Go through all the steps above, but with different a different state.
+
+
+
+## Mutate
+
+Create year, month values based on the date.
+
+```{r}
+tx_dates <- tx_raw |> 
+  mutate(
+    yr = year(date),
+    mn = month(date, label = TRUE),
+    yd = yday(date)
+  )
+
+tx_dates |> head()
+tx_dates |> glimpse()
+```
+
+### OYO: Make date parts
+
+Make the same date parts, but with your own state data.
+
+
+## Distinct
+
+```{r}
+tx_dates |> distinct(name)
+```
+
+### OYO: Find your names
+
+List out the distinct city names in your state.
+
+
+## Recode
+
+Use recode to create a new column of short city names.
+
+```{r}
+tx_names <- tx_dates |> 
+  mutate(
+    city = recode(
+      name,
+      "HOUSTON WILLIAM P HOBBY AIRPORT, TX US" = "Houston",
+      "AUSTIN CAMP MABRY, TX US" = "Austin",
+      "DALLAS FAA AIRPORT, TX US" = "Dallas"
+    )
+  )
+
+tx_names |> glimpse()
+```
+
+### OYO: Recode your cities
+
+Make similar short names, but for your state.
+
 
 ## Select
 
-Use this section to create a "tight" version of your data with only the columns you need.
+Create a new version of your data with only the columns you need, in the order you want them.
 
 ```{r}
-tx_tight <- tx_raw |> 
+tx_tight <- tx_names |> 
   select(
-    name,
+    city,
     date,
-    prcp,
+    rain = prcp,
     snow,
     snwd,
     tmax,
-    tmin
+    tmin,
+    yr,
+    mn,
+    yd
   )
 
 tx_tight |> glimpse()
 ```
 
-## Arrange
+### OYO: Select best cols
 
-Find the coldest day, warmest day, most snow, most rain.
+Go through the same process as above, but with your own state data.
 
-## Mutate
 
-Create a year value.
 
-## Filter
+## Export
 
-Choose a city, save as new. Find days with snow.
-
-## Group and Summarize: Count
-
-Find the years with the most snow days. Find the years with the most 100+ degree days.
-
-## Group and Summarize: Math
-
-Years with most rain. Years with most snow.
-
-## Recode
-
-Go back and shorten your station names.
+Write the file out as "rds" to the `data-processed` folder.
 
 ```{r}
-tx_tight |> 
-  group_by(name) |> 
-  slice_max(tmax)
-
-tx_tight |> 
-  group_by(name) |> 
-  slice_min(tmin)
+tx_tight |> write_rds("data-processed/tx_clean.rds")
 ```
 
+### OYO: Export your state
 
 

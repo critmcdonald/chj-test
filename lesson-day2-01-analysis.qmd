@@ -1,0 +1,6 @@
+---
+title: "Lesson Day 2 Analysis"
+author: "Christian McDonald"
+---
+
+This is TK. Will be based on [Solutions Day 2](solution-day2.qmd)

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practice Day 1 Answers</title>
+<title>Solutions Day 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./solution-day1.html">Solutions</a></li><li class="breadcrumb-item"><a href="./solution-day1.html">Practice Day 1 Answers</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./solution-day1.html">Solutions</a></li><li class="breadcrumb-item"><a href="./solution-day1.html">Solutions Day 1</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Home</span></a>
+ <span class="menu-text">CHJR Part 1</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">Home</span></a>
   </div>
 </li>
       </ul>
@@ -164,8 +164,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lesson-day1-02-import.html" class="sidebar-item-text sidebar-link">
+  <a href="./lesson-day1-02-clean.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Importing &amp; Cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lesson-day2-01-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson Day 2 Analysis</span></a>
   </div>
 </li>
       </ul>
@@ -185,6 +191,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Practice Day 1</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./practice-day2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice Day 2</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -199,7 +211,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solution-day1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Practice Day 1 Answers</span></a>
+ <span class="menu-text">Solutions Day 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solution-day2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions Day 2</span></a>
   </div>
 </li>
       </ul>
@@ -219,6 +237,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">R Functions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources/projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Managing a project</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -231,15 +255,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
-  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select">Select</a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange">Arrange</a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter">Filter</a></li>
-  <li><a href="#group-and-summarize-count" id="toc-group-and-summarize-count" class="nav-link" data-scroll-target="#group-and-summarize-count">Group and Summarize: Count</a></li>
-  <li><a href="#group-and-summarize-math" id="toc-group-and-summarize-math" class="nav-link" data-scroll-target="#group-and-summarize-math">Group and Summarize: Math</a></li>
-  <li><a href="#recode" id="toc-recode" class="nav-link" data-scroll-target="#recode">Recode</a></li>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a>
+  <ul class="collapse">
+  <li><a href="#oyo-import-a-different-state" id="toc-oyo-import-a-different-state" class="nav-link" data-scroll-target="#oyo-import-a-different-state">OYO: Import a different state</a></li>
+  </ul></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a>
+  <ul class="collapse">
+  <li><a href="#oyo-make-date-parts" id="toc-oyo-make-date-parts" class="nav-link" data-scroll-target="#oyo-make-date-parts">OYO: Make date parts</a></li>
+  </ul></li>
+  <li><a href="#distinct" id="toc-distinct" class="nav-link" data-scroll-target="#distinct">Distinct</a>
+  <ul class="collapse">
+  <li><a href="#oyo-find-your-names" id="toc-oyo-find-your-names" class="nav-link" data-scroll-target="#oyo-find-your-names">OYO: Find your names</a></li>
+  </ul></li>
+  <li><a href="#recode" id="toc-recode" class="nav-link" data-scroll-target="#recode">Recode</a>
+  <ul class="collapse">
+  <li><a href="#oyo-recode-your-cities" id="toc-oyo-recode-your-cities" class="nav-link" data-scroll-target="#oyo-recode-your-cities">OYO: Recode your cities</a></li>
+  </ul></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select">Select</a>
+  <ul class="collapse">
+  <li><a href="#oyo-select-best-cols" id="toc-oyo-select-best-cols" class="nav-link" data-scroll-target="#oyo-select-best-cols">OYO: Select best cols</a></li>
+  </ul></li>
+  <li><a href="#export" id="toc-export" class="nav-link" data-scroll-target="#export">Export</a>
+  <ul class="collapse">
+  <li><a href="#oyo-export-your-state" id="toc-oyo-export-your-state" class="nav-link" data-scroll-target="#oyo-export-your-state">OYO: Export your state</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -248,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practice Day 1 Answers</h1>
+<h1 class="title">Solutions Day 1</h1>
 </div>
 
 
@@ -265,39 +306,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This is the notebook fellows will work through on the first day of the Center for Health Journalism Hands-On R course.</p>
 <p>You will be using daily weather summaries that have been downloaded from <a href="https://www.ncei.noaa.gov/cdo-web/datasets">Climate Data Online</a>. You can choose to work with data from Arkansas, California or Texas. The explanations use Texas, but you may use one of the other files available.</p>
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<p>Our goals are to:</p>
+<ul>
+<li>Import our data.</li>
+<li>Check all the column data types.</li>
+<li>Add some new columns based on the date.</li>
+<li>Remove some unnecessary variables/columns.</li>
+<li>Export our cleaned data.</li>
+</ul>
+</section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <p>This is the section for libraries.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.3     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'janitor'
-
-The following objects are masked from 'package:stats':
-
-    chisq.test, fisher.test</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="import" class="level2">
 <h2 class="anchored" data-anchor-id="import">Import</h2>
-<p>Follow the directions in the book to import your data.</p>
+<p>Follow the directions in the lesson to import your data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-raw/tx.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-raw/tx.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 94475 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
@@ -309,7 +341,7 @@ date (1): DATE
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tx_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -319,9 +351,9 @@ date (1): DATE
 </div>
 </div>
 </div>
-<p>And now glimpse the data</p>
+<p>And then glimpse the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 94,475
 Columns: 10
@@ -337,85 +369,162 @@ $ tmin    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73
 $ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…</code></pre>
 </div>
 </div>
+<section id="oyo-import-a-different-state" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-import-a-different-state">OYO: Import a different state</h3>
+<p>Go through all the steps above, but with different a different state.</p>
 </section>
-<section id="select" class="level2">
-<h2 class="anchored" data-anchor-id="select">Select</h2>
-<p>Use this section to create a “tight” version of your data with only the columns you need.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="ot">&lt;-</span> tx_raw <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    date,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    prcp,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    snow,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    snwd,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    tmax,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    tmin</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 94,475
-Columns: 7
-$ name &lt;chr&gt; "HOUSTON WILLIAM P HOBBY AIRPORT, TX US", "HOUSTON WILLIAM P HOBB…
-$ date &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1930…
-$ prcp &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, NA,…
-$ snow &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-$ snwd &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-$ tmax &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97, 9…
-$ tmin &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70, 7…</code></pre>
-</div>
-</div>
-</section>
-<section id="arrange" class="level2">
-<h2 class="anchored" data-anchor-id="arrange">Arrange</h2>
-<p>Find the coldest day, warmest day, most snow, most rain.</p>
 </section>
 <section id="mutate" class="level2">
 <h2 class="anchored" data-anchor-id="mutate">Mutate</h2>
-<p>Create a year value.</p>
+<p>Create year, month values based on the date.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tx_dates <span class="ot">&lt;-</span> tx_raw <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">yr =</span> <span class="fu">year</span>(date),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mn =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">yd =</span> <span class="fu">yday</span>(date)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>tx_dates <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["station"],"name":[1],"type":["chr"],"align":["left"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["prcp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["snow"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["snwd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["tavg"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["tmax"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["tmin"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["tobs"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["yr"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["mn"],"name":[12],"type":["ord"],"align":["right"]},{"label":["yd"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"USW00012918","2":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US","3":"1930-08-01","4":"3.00","5":"NA","6":"NA","7":"NA","8":"99","9":"75","10":"86","11":"1930","12":"Aug","13":"213"},{"1":"USW00012918","2":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US","3":"1930-08-02","4":"0.09","5":"NA","6":"NA","7":"NA","8":"97","9":"79","10":"89","11":"1930","12":"Aug","13":"214"},{"1":"USW00012918","2":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US","3":"1930-08-03","4":"NA","5":"NA","6":"NA","7":"NA","8":"95","9":"78","10":"89","11":"1930","12":"Aug","13":"215"},{"1":"USW00012918","2":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US","3":"1930-08-04","4":"0.02","5":"NA","6":"NA","7":"NA","8":"95","9":"79","10":"85","11":"1930","12":"Aug","13":"216"},{"1":"USW00012918","2":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US","3":"1930-08-05","4":"0.12","5":"NA","6":"NA","7":"NA","8":"92","9":"76","10":"83","11":"1930","12":"Aug","13":"217"},{"1":"USW00012918","2":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US","3":"1930-08-06","4":"NA","5":"NA","6":"NA","7":"NA","8":"92","9":"74","10":"89","11":"1930","12":"Aug","13":"218"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tx_dates <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 94,475
+Columns: 13
+$ station &lt;chr&gt; "USW00012918", "USW00012918", "USW00012918", "USW00012918", "U…
+$ name    &lt;chr&gt; "HOUSTON WILLIAM P HOBBY AIRPORT, TX US", "HOUSTON WILLIAM P H…
+$ date    &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1…
+$ prcp    &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, …
+$ snow    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ snwd    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ tavg    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ tmax    &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97…
+$ tmin    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70…
+$ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…
+$ yr      &lt;dbl&gt; 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 19…
+$ mn      &lt;ord&gt; Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Au…
+$ yd      &lt;dbl&gt; 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 22…</code></pre>
+</div>
+</div>
+<section id="oyo-make-date-parts" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-make-date-parts">OYO: Make date parts</h3>
+<p>Make the same date parts, but with your own state data.</p>
 </section>
-<section id="filter" class="level2">
-<h2 class="anchored" data-anchor-id="filter">Filter</h2>
-<p>Choose a city, save as new. Find days with snow.</p>
 </section>
-<section id="group-and-summarize-count" class="level2">
-<h2 class="anchored" data-anchor-id="group-and-summarize-count">Group and Summarize: Count</h2>
-<p>Find the years with the most snow days. Find the years with the most 100+ degree days.</p>
+<section id="distinct" class="level2">
+<h2 class="anchored" data-anchor-id="distinct">Distinct</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tx_dates <span class="sc">|&gt;</span> <span class="fu">distinct</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US"},{"1":"AUSTIN CAMP MABRY, TX US"},{"1":"DALLAS FAA AIRPORT, TX US"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<section id="oyo-find-your-names" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-find-your-names">OYO: Find your names</h3>
+<p>List out the distinct city names in your state.</p>
 </section>
-<section id="group-and-summarize-math" class="level2">
-<h2 class="anchored" data-anchor-id="group-and-summarize-math">Group and Summarize: Math</h2>
-<p>Years with most rain. Years with most snow.</p>
 </section>
 <section id="recode" class="level2">
 <h2 class="anchored" data-anchor-id="recode">Recode</h2>
-<p>Go back and shorten your station names.</p>
+<p>Use recode to create a new column of short city names.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">|&gt;</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(tmax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tx_names <span class="ot">&lt;-</span> tx_dates <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">city =</span> <span class="fu">recode</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      name,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"HOUSTON WILLIAM P HOBBY AIRPORT, TX US"</span> <span class="ot">=</span> <span class="st">"Houston"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"AUSTIN CAMP MABRY, TX US"</span> <span class="ot">=</span> <span class="st">"Austin"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"DALLAS FAA AIRPORT, TX US"</span> <span class="ot">=</span> <span class="st">"Dallas"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>tx_names <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 94,475
+Columns: 14
+$ station &lt;chr&gt; "USW00012918", "USW00012918", "USW00012918", "USW00012918", "U…
+$ name    &lt;chr&gt; "HOUSTON WILLIAM P HOBBY AIRPORT, TX US", "HOUSTON WILLIAM P H…
+$ date    &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1…
+$ prcp    &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, …
+$ snow    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ snwd    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ tavg    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ tmax    &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97…
+$ tmin    &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70…
+$ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86, 84…
+$ yr      &lt;dbl&gt; 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 19…
+$ mn      &lt;ord&gt; Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Au…
+$ yd      &lt;dbl&gt; 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 22…
+$ city    &lt;chr&gt; "Houston", "Houston", "Houston", "Houston", "Houston", "Housto…</code></pre>
+</div>
+</div>
+<section id="oyo-recode-your-cities" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-recode-your-cities">OYO: Recode your cities</h3>
+<p>Make similar short names, but for your state.</p>
+</section>
+</section>
+<section id="select" class="level2">
+<h2 class="anchored" data-anchor-id="select">Select</h2>
+<p>Create a new version of your data with only the columns you need, in the order you want them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="ot">&lt;-</span> tx_names <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    city,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    date,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">rain =</span> prcp,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    snow,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    snwd,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    tmax,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    tmin,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    yr,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    mn,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    yd</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 94,475
+Columns: 10
+$ city &lt;chr&gt; "Houston", "Houston", "Houston", "Houston", "Houston", "Houston",…
+$ date &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1930…
+$ rain &lt;dbl&gt; 3.00, 0.09, NA, 0.02, 0.12, NA, NA, NA, 0.00, 0.00, 0.00, NA, NA,…
+$ snow &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ snwd &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ tmax &lt;dbl&gt; 99, 97, 95, 95, 92, 92, 96, 97, 94, 92, 99, 99, 98, 98, 98, 97, 9…
+$ tmin &lt;dbl&gt; 75, 79, 78, 79, 76, 74, 71, 71, 75, 72, 70, 71, 78, 72, 73, 70, 7…
+$ yr   &lt;dbl&gt; 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930, 1930,…
+$ mn   &lt;ord&gt; Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, …
+$ yd   &lt;dbl&gt; 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, …</code></pre>
+</div>
+</div>
+<section id="oyo-select-best-cols" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-select-best-cols">OYO: Select best cols</h3>
+<p>Go through the same process as above, but with your own state data.</p>
+</section>
+</section>
+<section id="export" class="level2">
+<h2 class="anchored" data-anchor-id="export">Export</h2>
+<p>Write the file out as “rds” to the <code>data-processed</code> folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="sc">|&gt;</span> <span class="fu">write_rds</span>(<span class="st">"data-processed/tx_clean.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="oyo-export-your-state" class="level3">
+<h3 class="anchored" data-anchor-id="oyo-export-your-state">OYO: Export your state</h3>
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["prcp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["snow"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["snwd"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["tmax"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["tmin"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"AUSTIN CAMP MABRY, TX US","2":"2000-09-05","3":"0","4":"0","5":"0","6":"112","7":"78"},{"1":"AUSTIN CAMP MABRY, TX US","2":"2011-08-28","3":"0","4":"0","5":"0","6":"112","7":"80"},{"1":"DALLAS FAA AIRPORT, TX US","2":"1980-06-26","3":"0","4":"0","5":"0","6":"112","7":"78"},{"1":"DALLAS FAA AIRPORT, TX US","2":"1980-06-27","3":"0","4":"0","5":"0","6":"112","7":"78"},{"1":"DALLAS FAA AIRPORT, TX US","2":"2018-07-22","3":"0","4":"0","5":"0","6":"112","7":"83"},{"1":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US","2":"2023-08-27","3":"0","4":"0","5":"0","6":"109","7":"80"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">|&gt;</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(tmin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["date"],"name":[2],"type":["date"],"align":["right"]},{"label":["prcp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["snow"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["snwd"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["tmax"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["tmin"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"AUSTIN CAMP MABRY, TX US","2":"1949-01-31","3":"0","4":"0","5":"4","6":"33","7":"-2"},{"1":"DALLAS FAA AIRPORT, TX US","2":"1940-01-23","3":"0","4":"0","5":"0","6":"40","7":"0"},{"1":"HOUSTON WILLIAM P HOBBY AIRPORT, TX US","2":"1940-01-23","3":"0","4":"NA","5":"0","6":"40","7":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-
-
+</section>
 </section>
 
 </main> <!-- /main -->

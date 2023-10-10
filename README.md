@@ -8,7 +8,7 @@ With these lessons we'll learn about:
 
 ## Day 1
 
-- [To the first lesson](https://critmcdonald.github.io/chjr-part1/lesson-day1-01.html)
+- [To the first lesson](https://critmcdonald.github.io/chjr-part1/lesson-day1-01-intro.html)
 
 Slide resources:
 
