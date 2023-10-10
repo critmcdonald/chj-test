@@ -2,15 +2,30 @@
 
 With these lessons we'll learn about:
 
-- Project management
-- Importing and exporting data
+- Basics of R, RStudio and Quarto
+- Importing, cleaning and exporting data
 - Basic data wrangling
+- Project management
+
+## Install R and RStudio
+
+Details here, though they are in the introduction.
+
+## Download this repo
+
+Details here, though they are in the introduction.
 
 ## Day 1
 
-- [To the first lesson](https://critmcdonald.github.io/chjr-part1/lesson-day1-01-intro.html)
+We'll use web-published versions of the lessons to read as we work through practice notebooks in the project.
 
-Slide resources:
+> These links will change because I might move the repo to utdata
 
-- [To a slide deck](https://critmcdonald.github.io/chj-part1/slides/sd1-01-intro.html)
+- [Main page](https://critmcdonald.github.io/chjr-part1/)
+- ~~[Introduction]()~~
+- ~~[Importing and cleaning]()~~
 
+
+## Slides
+
+I might have some, but most is probably the pages above.

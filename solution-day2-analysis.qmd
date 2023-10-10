@@ -28,6 +28,8 @@ library(tidyverse)
 
 ## Import
 
+Import your cleaned data using `read_rds()` and save it into an object:
+
 ```{r}
 tx_clean <- read_rds("data-processed/tx_clean.rds")
 ```
@@ -78,14 +80,15 @@ Find days that are 100+.
 
 ```{r}
 tx_clean |> 
-  filter(tmax >= 100)
+  filter(tmax >= 100) |> 
+  select(city, date, tmax)
 ```
 
-Filter for days in Houston that are 100+
+Filter for days in Dallas that are 100+
 
 ```{r}
 tx_clean |> 
-  filter(tmax >= 100, city == "Houston") |> 
+  filter(tmax >= 100, city == "Dallas") |> 
   select(city, date, tmax)
 ```
 
@@ -99,7 +102,7 @@ tx_clean |>
 
 ### OYO: Snow days in Dallas
 
-Find days where it snowed or there is snow on the ground, in Dallas.
+Find days where it snowed or there is snow on the ground, but only in Dallas.
 
 ```{r}
 tx_clean |> 
@@ -114,35 +117,29 @@ Use slice_min to find the coldest day in our data.
 ```{r}
 tx_clean |> 
   slice_min(tmin) |> 
-  select(city, yr, tmin)
-```
-
-### OYO: Find the hottest day
-
-```{r}
-tx_clean |> 
-  slice_max(tmax) |> 
-  select(city, date, tmin, tmax)
+  select(city, date, tmin)
 ```
 
 ## Group and slice
 
-Add `group_by` to find the hottest day in each city.
-
-```{r}
-tx_clean |> 
-  group_by(city) |> 
-  slice_max(tmax) |> 
-  select(city, date, tmax)
-```
-
-### OYO: Coldest day in each city
+Add `group_by` to find the coldest day in each city.
 
 ```{r}
 tx_clean |> 
   group_by(city) |> 
   slice_min(tmin) |> 
   select(city, date, tmin)
+```
+
+### OYO: Hottest day in each city
+
+Use `group_by` and `slice_max` to find the hottest days in each city. Note there might be some ties.
+
+```{r}
+tx_clean |> 
+  group_by(city) |> 
+  slice_max(tmax) |> 
+  select(city, date, tmax)
 ```
 
 ### Multiple groups
@@ -165,7 +162,7 @@ Summarize to find our first date, last date and number of rows.
 ```{r}
 tx_clean |> 
   summarize(
-    f_date = min(date),
+    e_date = min(date),
     l_date = max(date),
     cnt = n()
   )
@@ -179,11 +176,26 @@ Group the data by city and find the first date, last date and number of rows.
 tx_clean |> 
   group_by(city) |> 
   summarise(
-    f_date = min(date),
+    e_date = min(date),
     l_date = max(date),
     cnt = n()
   )
 ```
+
+Add city and yr as a group:
+
+```{r}
+tx_clean |> 
+  group_by(city, yr) |> 
+  summarise(
+    e_date = min(date),
+    l_date = max(date),
+    cnt = n()
+  )
+
+```
+
+
 
 ## Group and summarize: Count
 
