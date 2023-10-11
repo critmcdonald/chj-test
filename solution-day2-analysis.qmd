@@ -2,6 +2,8 @@
 title: "Solutions Day 2"
 ---
 
+> I NEED TO GO OVER THIS ONE MORE TIME VS THE LESSON TO MAKE SURE THEY MATCH.
+
 ## Goals
 
 To learn about: arrange, filter, slice, group_by, summarize
@@ -236,10 +238,29 @@ tx_clean |>
 Years with most rain in each city.
 
 ```{r}
-tx_clean |> 
+tx_yr_rain <- tx_clean |> 
+  filter(yr > 1939, yr < 2023) |>
   group_by(city, yr) |> 
-  summarize(total_rain = sum(rain)) |> 
-  arrange(desc(total_rain))
+  summarise(tot_rain = sum(rain, na.rm = TRUE)) |> 
+  arrange(city, desc(tot_rain))
+
+tx_yr_rain
+```
+
+The most rain in each city, sliced:
+
+```{r}
+tx_yr_rain |> 
+  group_by(city) |> 
+  slice_max(tot_rain, n = 3)
+```
+
+The least rain in each city, sliced:
+
+```{r}
+tx_yr_rain |> 
+  group_by(city) |> 
+  slice_min(tot_rain, n = 3)
 ```
 
 ### OYO: Years with most snow
@@ -247,29 +268,62 @@ tx_clean |>
 Find the years with the most total snow in each city
 
 ```{r}
-tx_clean |> 
+tx_yr_snow <- tx_clean |> 
   group_by(city, yr) |> 
-  summarize(total_snow = sum(snow)) |> 
-  arrange(desc(total_snow))
+  summarize(tot_snow = sum(snow)) |> 
+  arrange(city, desc(tot_snow))
 
+tx_yr_snow
 ```
+
+Most snow, sliced:
+
+```{r}
+tx_yr_snow |> 
+  group_by(city) |> 
+  slice_max(tot_snow, n = 3)
+```
+
 
 ## Working through logic
 
-Average rain per month in Austin.
+Getting average monthly rain for each city.
+
+First get the total rain for each month/year:
 
 ```{r}
-austin <- tx_clean |> filter(city == "Austin")
+tx_mn_yr_rain <- tx_clean |> 
+  filter(yr >= 1940, yr <= 2022) |>
+  group_by(city, mn, yr) |>
+  summarize(mn_yr_rain = sum(rain, na.rm = TRUE))
 
-austin$date |> summary() 
-
-austin |> 
-  filter(yr > 1938, yr < 2023) |> 
-  group_by(mn, yr) |> 
-  summarize(mn_yr_rain = sum(rain)) |> 
-  group_by(mn) |> 
-  summarize(avg_mn_rain = mean(mn_yr_rain))
+tx_mn_yr_rain  
 ```
+
+Then calculate the average for the months in each city:
+
+```{r}
+city_avg_rain <- tx_mn_yr_rain |> 
+  group_by(city, mn) |>
+  summarise(avg_mn_rain = mean(mn_yr_rain))
+
+city_avg_rain
+```
+
+And as a tease, we plot it:
+
+```{r}
+city_avg_rain |> 
+  ggplot(aes(x = mn, y = avg_mn_rain, group = city)) +
+  geom_line(aes(color = city)) +
+  ylim(0,6) +
+  labs(
+    title = "Average monthly rainfall, 1940-2022",
+    x = "", y = "Average monthly rain",
+    color = "City"
+  )
+```
+
 
 ## Challenge: Earliest 100+ day each city
 

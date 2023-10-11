@@ -3,7 +3,7 @@ title: "Lesson Day 2 Analysis"
 author: "Christian McDonald"
 ---
 
-> in mid-draft
+> FIRST DRAFT DONE. NEED TO CHECK AGAINST SOLUTIONS. THEN MAKE PRACTICE FILE.
 
 ## Goals of this lesson
 
@@ -346,13 +346,184 @@ There are other useful ones in the [summarise documentation](https://dplyr.tidyv
 
 ## Group and summarize: Count
 
+A very typical workflow to answer a data-driven question is to count records. Often the logic is to:
+
+- Do we need to consider all the data or just some of it?
+- Group the records by variables of interest, like categories or dates.
+- Count the number of records in each group.
+
+We'll use these general steps to answer this question: **What years have had the most 100+ degree days.** We'll start with Austin with careful consideration, then generally show how do it for all the cities.
+
+Here are the steps I used to do this, along with my though process. In some cases I'm editing the code as I go along but all we show is the end result below.
+
+1. I started with a new code chunk with the `tx_clean` data.
+2. I then filtered it to Austin and ran it to check it. I saved that result into a new object, `atx`.
+3. I added a line that used `summary()` to check the dates of the `atx` data. It looks like the data starts in June 1938 and there could have been days before that that were 100, so I amended my filter to cut out 1938. The latest date is Sept. 30. 2023. Since this is our current year and there are typically few 100+ days in October, I'll keep this year, but I'll note it if I use this in a chart.
+4. I glimpse it again just for convenience to see the column names.
+
+Here is the code:
+
+```{r}
+# get Austin data
+atx <- tx_clean |> filter(city == "Austin", yr > 1938)
+
+# check dates
+atx$date |> summary()
+
+# peek
+atx |> glimpse()
+```
+
+With my prepped data I can now do my calculations:
+
+1. I start with the `atx` data and filter to get days where `tmax` was 100+. I **Run the chunk** to check it.
+2. Then I grouped the records by `yr`.
+3. Then I summarize to get the count using n(), but with a descriptive column name, `hot_days`.
+4. Then I arranged the results to show the most `hot_days` at the top.
+5. Then I added a filter to cut off the list at a logical place, years with 50 days or more.
+
+```{r}
+atx |> 
+  filter(tmax >= 100) |> 
+  group_by(yr) |> 
+  summarize(hot_days = n()) |> 
+  arrange(desc(hot_days)) |> 
+  filter(hot_days >= 50)
+```
+
+Here is what that looks like if I try to do it with all the cities. The difference here is I'm not taking as much care with the dates so there might be partial years that are undercounted, but they should at least be lower.
+
+```{r}
+tx_clean |> 
+  filter(tmax >= 100) |> 
+  group_by(yr, city) |> 
+  summarize(hot_days = n()) |> 
+  arrange(desc(hot_days)) |> 
+  filter(hot_days >= 30)
+```
+
+Apparently the Houston Hobby Airport just doesn't have that many 100+ degree days compared to Austin and Dallas. That humidity, though ...
+
 ### OYO: Most snow days by city each year
+
+If there is time, you could try to do something similar to count the number of days with it snowed.
+
 
 ## Group and Summarize: Math
 
+The next question we want to answer: **In each city, which years had the most rain and which had the least?** Let's walk through our questions againL
+
+_Do we need to consider all the data?_
+
+In this case we definitely want only whole years. We calculated the first date of all the data earlier, and it looks like we'll have to start with 1940. We'll also lop off 2023. 
+
+_Do we need to consider our data in any groups?_
+
+We need to add together values in each city and year, so Austin for 1940, then '41, etc. We'll group our data by `city` and `yr`.
+
+_What do we need to calculate?_
+
+We need to add together the inches of rain, so we can `sum()` the `rain` column.
+
+Work through this in your practice notebook step by step:
+
+1. In the "Group and Summarize: Math" section, add a code chunk.
+2. Start with our data, then filter it to start after 1939 and before 2023. **Run** the chunk to make sure it works. You might even pipe into a `slice_max()` to test if it worked (but then remove it after you have checked.)
+3. Group your data by `city` and `yr`.
+4. Summarize your data using `sum()` on the `rain` column. You probably have to add an argument `na.rm = TRUE` to make this work because some days there were no rain and `sum()` doesn't know what to do with those blank values.
+5. Arrange the values first by city, then by the summed rain in descending order.
+6. Save your result into an object and then print it back out so you can see it.
+
+```{r}
+tx_yr_rain <- tx_clean |> 
+  filter(yr > 1939, yr < 2023) |>
+  group_by(city, yr) |> 
+  summarise(tot_rain = sum(rain, na.rm = TRUE)) |> 
+  arrange(city, desc(tot_rain))
+
+tx_yr_rain
+```
+
+At this point we have all the values, through they are hard to read. Some directions we could take to get more clarity:
+
+- We could take our new object and build new blocks to filter by city and arrange by most or least rain. Six new code chunks. Very clear.
+- We could maybe use group and slice_max to find highest values within each city, and then again with slice_min. There is an [option](https://dplyr.tidyverse.org/reference/slice.html) to set the number of returns.
+- We could plot this on a chart (a lesson for another day!). 
+
+Here is the group and slice method where I use the `n = ` argument to set how many records I want in the slice.
+
+```{r}
+tx_yr_rain |> 
+  group_by(city) |> 
+  slice_max(tot_rain, n = 3)
+```
+
+Here is the least rain:
+
+```{r}
+tx_yr_rain |> 
+  group_by(city) |> 
+  slice_min(tot_rain, n = 3)
+```
+
 ### OYO: Years with most snow
+
+Try to do the same to fine the years with the most snow in each city.
 
 ## Working through logic
 
+Here is a question that takes a couple of steps to accomplish: **What is the average monthly rainfall for each city?** i.e., How much rain should we expect each month, based on history?
+
+_Do we need to consider all our data?_ Again, we want just full years, so 1940 through 2022.
+
+_Do we need to consider data in groups?_ This is tricky. We can't just group by month and get the average because then we would be averaging the rain _each_ day within a month. We have to total the rain within a month for each year, then we can get the average.
+
+_What calculations do we need?_ Kinda answered that in that we need two calculations: One to total the rain within each month/year, and another to get the averages across those months.
+
+We could do the code all in one chunk, but you wouldn't see the result of the first group and sum, so we'll do it in two.
+
+```{r}
+tx_mn_yr_rain <- tx_clean |> 
+  filter(yr >= 1940, yr <= 2022) |> # <1>
+  group_by(city, mn, yr) |>  # <2>
+  summarize(mn_yr_rain = sum(rain, na.rm = TRUE)) # <3>
+
+tx_mn_yr_rain  
+```
+
+1. We filter to get our full years
+2. We group by three things so we can add the rain in each city for each month of each year.
+3. We then sum the rain with a nice name. We use `na.rm = TRUE` because there were cases where the rain value was blank instead of 0.0. Perhaps the station was down? Would need to do some reporting to figure that out.
+
+```{r}
+city_avg_rain <- tx_mn_yr_rain |> 
+  group_by(city, mn) |> # <1>
+  summarise(avg_mn_rain = mean(mn_yr_rain)) # <2>
+
+city_avg_rain
+```
+
+1. We take the result from above and group now by each city and each month, so we can work with all the "Austin in Jan" to get our average.
+2. Now we can get the average `mean()` of those months.
+
+And to tease you into what is in store for you tomorrow, let's plot those results:
+
+```{r}
+city_avg_rain |> 
+  ggplot(aes(x = mn, y = avg_mn_rain, group = city)) +
+  geom_line(aes(color = city)) +
+  ylim(0,6) +
+  labs(
+    title = "Average monthly rainfall, 1940-2022",
+    x = "", y = "Average monthly rain",
+    color = "City"
+  )
+```
+
 ## Challenge: Earliest 100+ day each city
 
+Find the earliest date in each city where it reached at least 100 degrees. Here is a hint: We have the `yd` field that is the number of days into a year.
+
+## What do you want to learn about the weather?
+
+Dream up a question and answer it. Maybe import your own state's data and find something there. The earliest snowfall. The snowiest month on average. The first freeze. The last freeze. Or more challenge, the average day of the last freeze (i.e., when can I plan my garden!).

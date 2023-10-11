@@ -334,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-raw/tx.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 94475 Columns: 10
+<pre><code>Rows: 94503 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (2): STATION, NAME
@@ -381,7 +381,7 @@ date (1): DATE
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["station"],"name":[1],"type":["chr"],"align":["left"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["prcp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["snow"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["snwd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["tavg"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["tmax"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["tmin"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["tobs"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-14","4":"0.55","5":"0","6":"0","7":"73","8":"75","9":"70","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-15","4":"0.01","5":"0","6":"0","7":"74","8":"83","9":"70","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-16","4":"0.00","5":"0","6":"0","7":"78","8":"88","9":"70","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-17","4":"0.00","5":"0","6":"0","7":"80","8":"92","9":"69","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-18","4":"0.00","5":"0","6":"0","7":"80","8":"94","9":"67","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-19","4":"1.39","5":"0","6":"0","7":"84","8":"96","9":"70","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-20","4":"0.00","5":"0","6":"0","7":"80","8":"93","9":"72","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-21","4":"0.00","5":"0","6":"0","7":"84","8":"93","9":"76","10":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["station"],"name":[1],"type":["chr"],"align":["left"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date"],"name":[3],"type":["date"],"align":["right"]},{"label":["prcp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["snow"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["snwd"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["tavg"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["tmax"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["tmin"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["tobs"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-23","4":"0.00","5":"0","6":"0","7":"88","8":"98","9":"78","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-24","4":"0.37","5":"0","6":"0","7":"90","8":"100","9":"74","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-25","4":"0.36","5":"0","6":"0","7":"80","8":"92","9":"72","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-26","4":"0.00","5":"0","6":"0","7":"83","8":"94","9":"72","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-27","4":"0.00","5":"0","6":"0","7":"83","8":"95","9":"73","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-28","4":"0.00","5":"0","6":"0","7":"84","8":"95","9":"74","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-29","4":"0.00","5":"0","6":"NA","7":"85","8":"94","9":"74","10":"NA"},{"1":"USW00013960","2":"DALLAS FAA AIRPORT, TX US","3":"2023-09-30","4":"0.00","5":"0","6":"0","7":"84","8":"93","9":"74","10":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -390,7 +390,7 @@ date (1): DATE
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 94,475
+<pre><code>Rows: 94,503
 Columns: 10
 $ station &lt;chr&gt; "USW00012918", "USW00012918", "USW00012918", "USW00012918", "U…
 $ name    &lt;chr&gt; "HOUSTON WILLIAM P HOBBY AIRPORT, TX US", "HOUSTON WILLIAM P H…
@@ -409,21 +409,21 @@ $ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tx_raw <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   station              name                date                 prcp        
- Length:94475       Length:94475       Min.   :1930-08-01   Min.   : 0.0000  
- Class :character   Class :character   1st Qu.:1959-01-10   1st Qu.: 0.0000  
- Mode  :character   Mode  :character   Median :1980-07-31   Median : 0.0000  
-                                       Mean   :1980-05-31   Mean   : 0.1121  
-                                       3rd Qu.:2002-03-02   3rd Qu.: 0.0000  
-                                       Max.   :2023-09-21   Max.   :12.0700  
+ Length:94503       Length:94503       Min.   :1930-08-01   Min.   : 0.0000  
+ Class :character   Class :character   1st Qu.:1959-01-12   1st Qu.: 0.0000  
+ Mode  :character   Mode  :character   Median :1980-08-05   Median : 0.0000  
+                                       Mean   :1980-06-04   Mean   : 0.1121  
+                                       3rd Qu.:2002-03-09   3rd Qu.: 0.0000  
+                                       Max.   :2023-09-30   Max.   :12.0700  
                                                             NA's   :1867     
       snow            snwd            tavg            tmax       
- Min.   :0.000   Min.   :0.000   Min.   : 0.00   Min.   : 13.00  
- 1st Qu.:0.000   1st Qu.:0.000   1st Qu.:60.00   1st Qu.: 69.00  
- Median :0.000   Median :0.000   Median :73.00   Median : 81.00  
- Mean   :0.003   Mean   :0.004   Mean   :70.18   Mean   : 78.56  
- 3rd Qu.:0.000   3rd Qu.:0.000   3rd Qu.:82.00   3rd Qu.: 91.00  
- Max.   :7.800   Max.   :7.000   Max.   :98.00   Max.   :112.00  
- NA's   :15349   NA's   :15441   NA's   :78833   NA's   :16      
+ Min.   :0.000   Min.   :0.000   Min.   : 0.0    Min.   : 13.00  
+ 1st Qu.:0.000   1st Qu.:0.000   1st Qu.:60.0    1st Qu.: 69.00  
+ Median :0.000   Median :0.000   Median :73.0    Median : 81.00  
+ Mean   :0.003   Mean   :0.004   Mean   :70.2    Mean   : 78.56  
+ 3rd Qu.:0.000   3rd Qu.:0.000   3rd Qu.:82.0    3rd Qu.: 91.00  
+ Max.   :7.800   Max.   :7.000   Max.   :98.0    Max.   :112.00  
+ NA's   :15369   NA's   :15463   NA's   :78843   NA's   :16      
       tmin            tobs      
  Min.   :-2.00   Min.   :24.00  
  1st Qu.:47.00   1st Qu.:61.00  
@@ -431,14 +431,14 @@ $ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86
  Mean   :58.65   Mean   :69.65  
  3rd Qu.:72.00   3rd Qu.:80.00  
  Max.   :93.00   Max.   :99.00  
- NA's   :16      NA's   :91886  </code></pre>
+ NA's   :16      NA's   :91914  </code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tx_raw<span class="sc">$</span>date <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
-"1930-08-01" "1959-01-10" "1980-07-31" "1980-05-31" "2002-03-02" "2023-09-21" </code></pre>
+"1930-08-01" "1959-01-12" "1980-08-05" "1980-06-04" "2002-03-09" "2023-09-30" </code></pre>
 </div>
 </div>
 <section id="oyo-peek-at-your-states-data" class="level3">
@@ -458,7 +458,7 @@ $ tobs    &lt;dbl&gt; 86, 89, 89, 85, 83, 89, 83, 82, 85, 85, 87, 86, 86, 85, 86
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>tx_dates <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 94,475
+<pre><code>Rows: 94,503
 Columns: 13
 $ station &lt;chr&gt; "USW00012918", "USW00012918", "USW00012918", "USW00012918", "U…
 $ name    &lt;chr&gt; "HOUSTON WILLIAM P HOBBY AIRPORT, TX US", "HOUSTON WILLIAM P H…
@@ -510,7 +510,7 @@ $ yd      &lt;dbl&gt; 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>tx_names <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 94,475
+<pre><code>Rows: 94,503
 Columns: 14
 $ station &lt;chr&gt; "USW00012918", "USW00012918", "USW00012918", "USW00012918", "U…
 $ name    &lt;chr&gt; "HOUSTON WILLIAM P HOBBY AIRPORT, TX US", "HOUSTON WILLIAM P H…
@@ -566,7 +566,7 @@ $ city    &lt;chr&gt; "Houston", "Houston", "Houston", "Houston", "Houston", "Ho
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>tx_tight <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 94,475
+<pre><code>Rows: 94,503
 Columns: 10
 $ city &lt;chr&gt; "Houston", "Houston", "Houston", "Houston", "Houston", "Houston",…
 $ date &lt;date&gt; 1930-08-01, 1930-08-02, 1930-08-03, 1930-08-04, 1930-08-05, 1930…
