@@ -21,7 +21,7 @@ We'll use web-published versions of the lessons to read as we work through pract
 
 > These links will change because I might move the repo to utdata
 
-- [Main page](https://critmcdonald.github.io/chjr-part1/)
+- [Main page](https://utdata.github.io/chjr-part1/)
 - ~~[Introduction]()~~
 - ~~[Importing and cleaning]()~~
 

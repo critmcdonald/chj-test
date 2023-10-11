@@ -136,7 +136,7 @@ The `clean_names()` function is from the [janitor](https://cran.r-project.org/we
 
 - It lowercases all the variable names.
 - It standardizes the text, removing special characters, etc.
-- If the variable names have more than one work, it will put an underscore between them: `birth_date`.
+- If the variable names have more than one word, it will put an underscore between them: `birth_date`.
 
 Using `clean_names()` is a preference and you don't have to do it. I almost always do. It can save keyboard strokes later and makes it easy to copy/paste the variable names.
 

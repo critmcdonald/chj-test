@@ -16,3 +16,7 @@ Some tips and demos about working with projects.
     - Publishing to Quarto Pub
 - If you use Github
 
+{{< video https://vimeo.com/873183057 >}}
+
+## Things to consider
+
