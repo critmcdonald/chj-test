@@ -21,10 +21,18 @@ Our goals are to:
 
 Add the entire code block for libraries.
 
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(janitor)
+```
 
 ## Import
 
 Follow the directions in the lesson to import the Texas data, starting with adding a new code block:
+
 
 
 ### OYO: Import a different state

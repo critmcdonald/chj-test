@@ -25,28 +25,28 @@
     "href": "index.html",
     "title": "CHJR Part 1",
     "section": "",
-    "text": "With these lessons we’ll learn about:\n\nBasics of R, RStudio and Quarto\nImporting, cleaning and exporting data\nBasic data wrangling\nProject management\n\n\n\nDetails here, though they are in the introduction.\n\n\n\nDetails here, though they are in the introduction.\n\n\n\nWe’ll use web-published versions of the lessons to read as we work through practice notebooks in the project.\n\nThese links will change because I might move the repo to utdata\n\n\nMain page\nIntroduction\nImporting and cleaning\n\n\n\n\nI might have some, but most is probably the pages above."
+    "text": "THIS VERSION OF THE PROJECT IS MOTHBALLED IN FAVOR OF THIS VERSION\n\nWith these lessons we’ll learn about:\n\nBasics of R, RStudio and Quarto\nImporting, cleaning and exporting data\nBasic data wrangling\nProject management\n\n\n\n\nYou can find the installers here. You need both R and RStudio.\n\nIf on a Mac, make sure you move RStudio into your Applications folder.\n\n\nThere is a chance we might have to install Quarto CLI, but don’t worry about it unless we need it.\n\n\n\nNow we’ll download the course materials for the first couple of days of class. They are stored on Github.\n\nFrom this page, click on the big green Code button and choose Download zip\nFind the downloaded file and unzip the folder. Mac: Double-click on it. PC directions here\nMove the unzipped folder to your Desktop (or some other place you can find it).\nGo back to RStudio and go to File &gt; Open Project. Go find your folder and open the file chjr-part1.Rproj.\n\n\n\n\nWe’ll use web-published versions of the lessons to read as we work through practice notebooks in the project.\n\nMain page\nIntroduction\nImporting and cleaning\nData wrangling\n\n\n\n\nI might have some, but most is probably the pages above."
   },
   {
     "objectID": "index.html#install-r-and-rstudio",
     "href": "index.html#install-r-and-rstudio",
     "title": "CHJR Part 1",
     "section": "",
-    "text": "Details here, though they are in the introduction."
+    "text": "You can find the installers here. You need both R and RStudio.\n\nIf on a Mac, make sure you move RStudio into your Applications folder.\n\n\nThere is a chance we might have to install Quarto CLI, but don’t worry about it unless we need it."
   },
   {
     "objectID": "index.html#download-this-repo",
     "href": "index.html#download-this-repo",
     "title": "CHJR Part 1",
     "section": "",
-    "text": "Details here, though they are in the introduction."
+    "text": "Now we’ll download the course materials for the first couple of days of class. They are stored on Github.\n\nFrom this page, click on the big green Code button and choose Download zip\nFind the downloaded file and unzip the folder. Mac: Double-click on it. PC directions here\nMove the unzipped folder to your Desktop (or some other place you can find it).\nGo back to RStudio and go to File &gt; Open Project. Go find your folder and open the file chjr-part1.Rproj."
   },
   {
-    "objectID": "index.html#day-1",
-    "href": "index.html#day-1",
+    "objectID": "index.html#lessons",
+    "href": "index.html#lessons",
     "title": "CHJR Part 1",
     "section": "",
-    "text": "We’ll use web-published versions of the lessons to read as we work through practice notebooks in the project.\n\nThese links will change because I might move the repo to utdata\n\n\nMain page\nIntroduction\nImporting and cleaning"
+    "text": "We’ll use web-published versions of the lessons to read as we work through practice notebooks in the project.\n\nMain page\nIntroduction\nImporting and cleaning\nData wrangling"
   },
   {
     "objectID": "index.html#slides",
@@ -58,119 +58,119 @@
   {
     "objectID": "lesson-day2-01-analysis.html",
     "href": "lesson-day2-01-analysis.html",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "",
     "text": "FIRST DRAFT DONE. NEED TO CHECK AGAINST SOLUTIONS. THEN MAKE PRACTICE FILE."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#goals-of-this-lesson",
     "href": "lesson-day2-01-analysis.html#goals-of-this-lesson",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Goals of this lesson",
     "text": "Goals of this lesson\nFor this lesson we’ll learn about data wrangling functions, many of them from dplyr. These are the functions that are much like you do in spreadsheets, like filtering, pivoting and the like. Most of these skills are necessary to prepare data before you make charts.\nFunction we will learn about include: arrange(), filter(), slice(), group_by() and summarize().\nWe’ll use these to find several findings from our data, including:\n\nThe coldest and warmest days\nThe rainiest and snowiest days\nYears with most snow days\nYears with most 100+ days\nYears with most rain\nEarliest day to reach 100+ each year\n\nTo perhaps avoid some confusion we’ll use just the Texas data for this lesson.\n(You theoretically could use a different state, but would need to adjust your code to import the right data, use valid cities, etc.)"
   },
   {
     "objectID": "lesson-day2-01-analysis.html#clean-up-our-workspace",
     "href": "lesson-day2-01-analysis.html#clean-up-our-workspace",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Clean up our workspace",
     "text": "Clean up our workspace\nAgain I have a practice notebook ready for you to fill in to keep you on track. Let’s open the file and clean up our environment before we get going.\n\nOpen your chjr-part1 project if it isn’t already.\nOpen the file practice-day1-analysis.qmd.\nUnder run, choose “Restart R and Clear Output”.\nCheck your Enfironment tab. If there is anything listed there, click on the broom icon to clear it out.\n\nWe do this so we don’t have any leftovers from our previous notebook. Each notebook should run independently. That’s also necessary to Render pages within a project."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#add-your-setup-chunk",
     "href": "lesson-day2-01-analysis.html#add-your-setup-chunk",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Add your setup chunk",
     "text": "Add your setup chunk\nI’m going to include the whole setup chunk code here again so you get the execution options.\n\n```{r}\n#| label: setup\n#| message: false\n\nlibrary(tidyverse)\n```\n\nWe only need the tidyverse library for this one."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#import-our-cleaned-data",
     "href": "lesson-day2-01-analysis.html#import-our-cleaned-data",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Import our cleaned data",
     "text": "Import our cleaned data\nNow to reap the benefit our the hard work from last lesson, let’s import our cleaned data.\n\nIn the import section of the notebook, add a code chunk.\nAdd the read_rds() function below and fill out the path to your cleaned data, as indicated.\nSave that data into a new object called tx_clean.\n\n\ntx_clean &lt;- read_rds(\"data-processed/tx_clean.rds\")"
   },
   {
     "objectID": "lesson-day2-01-analysis.html#arrange",
     "href": "lesson-day2-01-analysis.html#arrange",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Arrange",
     "text": "Arrange\nThe arrange() function is what we use to sort our data. We can use this function to find a couple of answers were looking for, like what are the hottest and coldest days in our data.\nThe function is pretty simple, just feed it the data (usually from a pipe) and then add the column you want to sort on. By default it is in “ascending” order: low to high or alphabetically. If you want the opposite (and journalists usually do) you have to wrap the column in another function, desc().\n\nIn the arrange section, add a code chunk for the “Coldest day” section.\nStart with your data, the pipe into arrange() and add the tmin() column.\nRun the chunk so you can see the result. Note the data is ordered by the tmin column, but it’s hard to see. Let’s add a select() function to focus on what we care about.\nPipe into select() adding the city, date and tmin columns.\n\n\ntx_clean |&gt; \n  arrange(tmin) |&gt; \n  select(city, date, tmin)\n\n\n\n  \n\n\n\nGlad I as not in Austin in 1949. Now to find the hottest days.\n\nAfter the “Hottest day” header add a new code chunk.\nUse arrange to find the highest tmax value. Run the chunk to make sure it worked.\nUse select to clean up the fields.\n\n\ntx_clean |&gt;\n  arrange(desc(tmax)) |&gt; \n  select(city, date, tmax)\n\n\n\n  \n\n\n\nUgh, I was in Austin in 2011.\n\nOYO: Most rain\nUsing the same tools, find:\n\nThe days with the most rain\nThe days with the most snow"
   },
   {
     "objectID": "lesson-day2-01-analysis.html#filter",
     "href": "lesson-day2-01-analysis.html#filter",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Filter",
     "text": "Filter\nWe use the filter() function when we want to specify rows based on a condition. This is the equivalent of clicking on the Filter tool in Excel and choosing values to keep or exclude, but we do it with code that can be fixed and repeated.\nWe’ll use this function to build to some of our answers, like which years had the most 100+ degree days. We need to work on this skill here first, as there are nuances.\nThe function works like this:\n# this is psuedo code. don't add it\ndata |&gt; \n  filter(variable comparison value)\n\n# example\ntx_clean |&gt; \n  filter(city == \"Austin\")\nThe filter() function typically works in this order:\n\nWhat is the variable (or column) you are searching in.\nWhat is the comparison you want to do. Equal to? Greater than?\nWhat is the observation (or value in the data) you are looking for?\n\nNote the two equals signs == in our Austin example above. It is important to use two of them when you are asking if a value is “true” or “equal to”, as a single = typically means you are assigning a value to something.\n\nComparisons: Logical tests\nThere are a number of these logical tests for the comparison:\n\n\n\nOperator\nDefinition\n\n\n\n\nx &lt; y\nLess than\n\n\nx &gt; y\nGreater than\n\n\nx == y\nEqual to\n\n\nx &lt;= y\nLess than or equal to\n\n\nx &gt;= y\nGreater than or equal to\n\n\nx != y\nNot equal to\n\n\nx %in% c(y,z)\nIn a group\n\n\nis.na(x)\nIs NA (missing values)\n\n\n!is.na(x)\nIs not NA\n\n\n\nWhere you apply a filter matters. If we want to consider only certain data before other operations, then we need to do the filter first. In other cases we may filter after all our calculations just to clean up the result to show rows of interest.\n\n\nSingle condition\nLet’s find days that are 100+.\n\nIn the ## Filter section in the part about 100+ days, add a code chunk.\nStart with the data, the pipe into filter\nFor the condition, look in the tmax column using &gt;= to find values “greater or equal to” 100\nRun the code to make sure it works.\nUse select() to focuse on the variables of interest.\n\n\ntx_clean |&gt; \n  filter(tmax &gt;= 100) |&gt; \n  select(city, date, tmax)\n\n\n\n  \n\n\n\n\n\nMultiple “and” conditions\nOK, that’s fine, but our list is not long enough to see the days in Dallas. Let’s do this again, but add a second condition to test. When you use a comma , or ampersand & between conditions, both conditions must be true to keep the rows.\n\nIn the Dallas 100+ section, start a new code chunk.\nDo the same code as above and run it to make sure it still works.\nUse a comma after the first condition to add a second one: city == \"Dallas\".\n\n\ntx_clean |&gt; \n  filter(tmax &gt;= 100, city == \"Dallas\") |&gt; \n  select(city, date, tmax)\n\n\n\n  \n\n\n\n\n\nMultiple “or” conditions\nBut what if we have an “either or” case where one of two conditions could be true. This would be the case if we wanted to find days where it either a) snowed that day, or b) there was snow left on the ground from a previous day. This is a true snow day, right?\nYou can use the | operator for an “or” condition. That character is the shift of the \\ key just above your return/enter key.\n\nIn the section about snow days, add a chunk.\nAdd the code, but run after adding the first condition, before you add the second, so you can compare them when you are done.\n\n\ntx_clean |&gt; \n  filter(snow &gt; 0 | snwd &gt; 0) |&gt; \n  select(city, date, snow, snwd)\n\n\n\n  \n\n\n\n\n\nBut I need “and” and “or”\nYou can mix “and” and “or” conditions, but note the order of them might matter depending on what you are doing.\n\n\nOYO: Real snow days in Dallas\nIn your notebook, start with the snow days we had above, but add a new condition to it that\n\n\nFiltering text\nOur data here doesn’t lend itself well to explaining this, but we can use filter to find parts of words as well. There are many ways, but the one I use the most is str_detect().\n\ntx_clean |&gt; \n1  filter(str_detect(city, \"st\")) |&gt;\n  distinct(city)\n\n\n1\n\nInside the filter, we start with str_detect(). The first argument it needs is which column in our data to look at, so we fed it city. The second argument (after a comma) is the string of text we are looking for in the column, which is st in our case.\n\n\n\n\n\n\n  \n\n\n\nThe code above found both “Houston” and “Austin” because they have “st” in them. It didn’t capture “Dallas”."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#slice",
     "href": "lesson-day2-01-analysis.html#slice",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Slice",
     "text": "Slice\nAnother way to pick out specific rows of data based on a condition is to use slice variables like slice_max(), slice_min(). I mainly want to show this so you can understand our next function better.\nLet’s use slice_min() to find the coldest day in our data.\n\nIn the slice section of the notebook about coldest day, add the following:\n\n\ntx_clean |&gt; \n  slice_min(tmin) |&gt; \n  select(city, date, tmin)\n\n\n\n  \n\n\n\nWe get one result, the coldest day in the data. But what if we want the coldest day for each city? We will introduce group_by() to solve that."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#group-by",
     "href": "lesson-day2-01-analysis.html#group-by",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Group by",
     "text": "Group by\nThe group_by() function goes behind the scenes to organize your data into groups, and any function that follows it gets executed within those groups.\nThe columns you feed into group_by() determine the groups. If we do group_by(city) then all the “Austin” rows are grouped together, then all the “Dallas” rows, then all the “Houston” rows.\nI sometimes think of these groups as piles of data, separate from each other. We would have three piles of date, one for each city. Functions that follow happen independently on each pile."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#group-and-slice",
     "href": "lesson-day2-01-analysis.html#group-and-slice",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Group and slice",
     "text": "Group and slice\nIf we add our group_by(city) before slice, then it works within each group. Like this:\n\ntx_clean |&gt; \n  group_by(city) |&gt; \n  slice_min(tmin) |&gt; \n  select(city, date, tmin)\n\n\n\n  \n\n\n\nLook at the difference in this result. Now we get a result for each city, because the rows we “grouped” the data before performing the slice. Since there are three cities, we get three results."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#multiple-groupings",
     "href": "lesson-day2-01-analysis.html#multiple-groupings",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Multiple groupings",
     "text": "Multiple groupings\nWe can also group by multiple columns. What that does is create a group (or pile!) of data for each matching combination of values.\nSo, if we group_by(city, yr) then we will get a pile for each year of Austin (85 piles because there are 85 years of data for Austin), then a pile for each year in Houston, etc.\nIf we were to find the hottest day in each of those piles, it would look like this:\n\nCreate a new chunk and add this to your notebook.\nTry it with and without the distinct() at the end and think about why you got those results.\n\n\ntx_clean |&gt; \n  group_by(yr, city) |&gt; \n  slice_max(tmax) |&gt; \n  select(city, tmax) |&gt; \n  distinct()\n\nAdding missing grouping variables: `yr`\n\n\n\n\n  \n\n\n\nI added distinct the distinct() there to remove some ties where there were multiple days in a year with that high temperature."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#summarize",
     "href": "lesson-day2-01-analysis.html#summarize",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Summarize",
     "text": "Summarize\nWhile slice is nice, we really went through this exercise to understand group_by so we can use it with summarize, which allows us to summarize data much like a pivot table in Excel.\n\n\n\n\n\n\nTip\n\n\n\nsummarise() and summarize() are the same function. The creator of tidyverse is from New Zealand so he has both spellings. I tend to use them both by whim, though the “s” version comes first in type-assist.\n\n\nIf there are no group_by variables, the output will be a single row summarizing all observations in the input. If we have groups, it will contain one column for each grouping variable and one column for each summary statistic we specify.\nLet’s do one without groups.\n\nIn the Summarize section, add the following chunk and code.\n\n\ntx_clean |&gt; \n  summarize(\n    e_date = min(date),\n    l_date = max(date),\n    cnt = n()\n  )\n\n\n\n  \n\n\n\nWe have no groups here, so we just get the stats we as for … the earliest date in our data, the latest date in our data and the number of rows.\n\nAdd city as a group\n\nJust use the copy-to-clipboard tool to add this to your notebook and run it to see it.\n\n\ntx_clean |&gt; \n1  group_by(city) |&gt;\n  summarise(\n    e_date = min(date),\n    l_date = max(date),\n    cnt = n()\n  )\n\n\n1\n\nThis is where we add the group.\n\n\n\n\n\n\n  \n\n\n\n\n\nAdd both city and yr as a group\n\ntx_clean |&gt; \n1  group_by(city, yr) |&gt;\n  summarise(\n    e_date = min(date),\n    l_date = max(date),\n    cnt = n()\n  )\n\n\n1\n\nThis is where we add the second group to get both city and yr.\n\n\n\n\n`summarise()` has grouped output by 'city'. You can override using the\n`.groups` argument.\n\n\n\n\n  \n\n\n\n\n\nCommon summarize stats\nThere are a number of statistics we can find about our data within summarize.\n\nn() counts the number of rows\nn_distinct() counts the number of distinct values in the column\nmin() gives the smallest value\nmax() gives the largest value\n\nSome math operators might need the argument na.rm = TRUE to ignore NA (empty) values.\n\nsum() adds values together.\nmean() gives the mean (or average) value.\nmedian() gives the median or middle value\n\nThere are other useful ones in the summarise documentation."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#group-and-summarize-count",
     "href": "lesson-day2-01-analysis.html#group-and-summarize-count",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Group and summarize: Count",
     "text": "Group and summarize: Count\nA very typical workflow to answer a data-driven question is to count records. Often the logic is to:\n\nDo we need to consider all the data or just some of it?\nGroup the records by variables of interest, like categories or dates.\nCount the number of records in each group.\n\nWe’ll use these general steps to answer this question: What years have had the most 100+ degree days. We’ll start with Austin with careful consideration, then generally show how do it for all the cities.\nHere are the steps I used to do this, along with my though process. In some cases I’m editing the code as I go along but all we show is the end result below.\n\nI started with a new code chunk with the tx_clean data.\nI then filtered it to Austin and ran it to check it. I saved that result into a new object, atx.\nI added a line that used summary() to check the dates of the atx data. It looks like the data starts in June 1938 and there could have been days before that that were 100, so I amended my filter to cut out 1938. The latest date is Sept. 30. 2023. Since this is our current year and there are typically few 100+ days in October, I’ll keep this year, but I’ll note it if I use this in a chart.\nI glimpse it again just for convenience to see the column names.\n\nHere is the code:\n\n# get Austin data\natx &lt;- tx_clean |&gt; filter(city == \"Austin\", yr &gt; 1938)\n\n# check dates\natx$date |&gt; summary()\n\n        Min.      1st Qu.       Median         Mean      3rd Qu.         Max. \n\"1939-01-01\" \"1960-03-09\" \"1981-05-16\" \"1981-05-16\" \"2002-07-23\" \"2023-09-30\" \n\n# peek\natx |&gt; glimpse()\n\nRows: 30,954\nColumns: 10\n$ city &lt;chr&gt; \"Austin\", \"Austin\", \"Austin\", \"Austin\", \"Austin\", \"Austin\", \"Aust…\n$ date &lt;date&gt; 1939-01-01, 1939-01-02, 1939-01-03, 1939-01-04, 1939-01-05, 1939…\n$ rain &lt;dbl&gt; 0.00, 0.00, 0.01, 0.14, 0.00, 0.00, 0.00, 0.12, 0.41, 0.00, 0.34,…\n$ snow &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ snwd &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ tmax &lt;dbl&gt; 69, 73, 74, 73, 70, 72, 72, 69, 73, 66, 58, 49, 54, 58, 53, 55, 6…\n$ tmin &lt;dbl&gt; 32, 37, 56, 49, 41, 39, 52, 54, 53, 48, 46, 43, 35, 42, 34, 29, 4…\n$ yr   &lt;dbl&gt; 1939, 1939, 1939, 1939, 1939, 1939, 1939, 1939, 1939, 1939, 1939,…\n$ mn   &lt;ord&gt; Jan, Jan, Jan, Jan, Jan, Jan, Jan, Jan, Jan, Jan, Jan, Jan, Jan, …\n$ yd   &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19…\n\n\nWith my prepped data I can now do my calculations:\n\nI start with the atx data and filter to get days where tmax was 100+. I Run the chunk to check it.\nThen I grouped the records by yr.\nThen I summarize to get the count using n(), but with a descriptive column name, hot_days.\nThen I arranged the results to show the most hot_days at the top.\nThen I added a filter to cut off the list at a logical place, years with 50 days or more.\n\n\natx |&gt; \n  filter(tmax &gt;= 100) |&gt; \n  group_by(yr) |&gt; \n  summarize(hot_days = n()) |&gt; \n  arrange(desc(hot_days)) |&gt; \n  filter(hot_days &gt;= 50)\n\n\n\n  \n\n\n\nHere is what that looks like if I try to do it with all the cities. The difference here is I’m not taking as much care with the dates so there might be partial years that are undercounted, but they should at least be lower.\n\ntx_clean |&gt; \n  filter(tmax &gt;= 100) |&gt; \n  group_by(yr, city) |&gt; \n  summarize(hot_days = n()) |&gt; \n  arrange(desc(hot_days)) |&gt; \n  filter(hot_days &gt;= 30)\n\n`summarise()` has grouped output by 'yr'. You can override using the `.groups`\nargument.\n\n\n\n\n  \n\n\n\nApparently the Houston Hobby Airport just doesn’t have that many 100+ degree days compared to Austin and Dallas. That humidity, though …\n\nOYO: Most snow days by city each year\nIf there is time, you could try to do something similar to count the number of days with it snowed."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#group-and-summarize-math",
     "href": "lesson-day2-01-analysis.html#group-and-summarize-math",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Group and Summarize: Math",
     "text": "Group and Summarize: Math\nThe next question we want to answer: In each city, which years had the most rain and which had the least? Let’s walk through our questions againL\nDo we need to consider all the data?\nIn this case we definitely want only whole years. We calculated the first date of all the data earlier, and it looks like we’ll have to start with 1940. We’ll also lop off 2023.\nDo we need to consider our data in any groups?\nWe need to add together values in each city and year, so Austin for 1940, then ’41, etc. We’ll group our data by city and yr.\nWhat do we need to calculate?\nWe need to add together the inches of rain, so we can sum() the rain column.\nWork through this in your practice notebook step by step:\n\nIn the “Group and Summarize: Math” section, add a code chunk.\nStart with our data, then filter it to start after 1939 and before 2023. Run the chunk to make sure it works. You might even pipe into a slice_max() to test if it worked (but then remove it after you have checked.)\nGroup your data by city and yr.\nSummarize your data using sum() on the rain column. You probably have to add an argument na.rm = TRUE to make this work because some days there were no rain and sum() doesn’t know what to do with those blank values.\nArrange the values first by city, then by the summed rain in descending order.\nSave your result into an object and then print it back out so you can see it.\n\n\ntx_yr_rain &lt;- tx_clean |&gt; \n  filter(yr &gt; 1939, yr &lt; 2023) |&gt;\n  group_by(city, yr) |&gt; \n  summarise(tot_rain = sum(rain, na.rm = TRUE)) |&gt; \n  arrange(city, desc(tot_rain))\n\n`summarise()` has grouped output by 'city'. You can override using the\n`.groups` argument.\n\ntx_yr_rain\n\n\n\n  \n\n\n\nAt this point we have all the values, through they are hard to read. Some directions we could take to get more clarity:\n\nWe could take our new object and build new blocks to filter by city and arrange by most or least rain. Six new code chunks. Very clear.\nWe could maybe use group and slice_max to find highest values within each city, and then again with slice_min. There is an option to set the number of returns.\nWe could plot this on a chart (a lesson for another day!).\n\nHere is the group and slice method where I use the n = argument to set how many records I want in the slice.\n\ntx_yr_rain |&gt; \n  group_by(city) |&gt; \n  slice_max(tot_rain, n = 3)\n\n\n\n  \n\n\n\nHere is the least rain:\n\ntx_yr_rain |&gt; \n  group_by(city) |&gt; \n  slice_min(tot_rain, n = 3)\n\n\n\n  \n\n\n\n\nOYO: Years with most snow\nTry to do the same to fine the years with the most snow in each city."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#working-through-logic",
     "href": "lesson-day2-01-analysis.html#working-through-logic",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Working through logic",
     "text": "Working through logic\nHere is a question that takes a couple of steps to accomplish: What is the average monthly rainfall for each city? i.e., How much rain should we expect each month, based on history?\nDo we need to consider all our data? Again, we want just full years, so 1940 through 2022.\nDo we need to consider data in groups? This is tricky. We can’t just group by month and get the average because then we would be averaging the rain each day within a month. We have to total the rain within a month for each year, then we can get the average.\nWhat calculations do we need? Kinda answered that in that we need two calculations: One to total the rain within each month/year, and another to get the averages across those months.\nWe could do the code all in one chunk, but you wouldn’t see the result of the first group and sum, so we’ll do it in two.\n\ntx_mn_yr_rain &lt;- tx_clean |&gt; \n1  filter(yr &gt;= 1940, yr &lt;= 2022) |&gt;\n2  group_by(city, mn, yr) |&gt;\n3  summarize(mn_yr_rain = sum(rain, na.rm = TRUE))\n\n\n1\n\nWe filter to get our full years\n\n2\n\nWe group by three things so we can add the rain in each city for each month of each year.\n\n3\n\nWe then sum the rain with a nice name. We use na.rm = TRUE because there were cases where the rain value was blank instead of 0.0. Perhaps the station was down? Would need to do some reporting to figure that out.\n\n\n\n\n`summarise()` has grouped output by 'city', 'mn'. You can override using the\n`.groups` argument.\n\ntx_mn_yr_rain  \n\n\n\n  \n\n\n\n\ncity_avg_rain &lt;- tx_mn_yr_rain |&gt; \n1  group_by(city, mn) |&gt;\n2  summarise(avg_mn_rain = mean(mn_yr_rain))\n\n\n1\n\nWe take the result from above and group now by each city and each month, so we can work with all the “Austin in Jan” to get our average.\n\n2\n\nNow we can get the average mean() of those months.\n\n\n\n\n`summarise()` has grouped output by 'city'. You can override using the\n`.groups` argument.\n\ncity_avg_rain\n\n\n\n  \n\n\n\nAnd to tease you into what is in store for you tomorrow, let’s plot those results:\n\ncity_avg_rain |&gt; \n  ggplot(aes(x = mn, y = avg_mn_rain, group = city)) +\n  geom_line(aes(color = city)) +\n  ylim(0,6) +\n  labs(\n    title = \"Average monthly rainfall, 1940-2022\",\n    x = \"\", y = \"Average monthly rain\",\n    color = \"City\"\n  )"
   },
   {
     "objectID": "lesson-day2-01-analysis.html#challenge-earliest-100-day-each-city",
     "href": "lesson-day2-01-analysis.html#challenge-earliest-100-day-each-city",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "Challenge: Earliest 100+ day each city",
     "text": "Challenge: Earliest 100+ day each city\nFind the earliest date in each city where it reached at least 100 degrees. Here is a hint: We have the yd field that is the number of days into a year."
   },
   {
     "objectID": "lesson-day2-01-analysis.html#what-do-you-want-to-learn-about-the-weather",
     "href": "lesson-day2-01-analysis.html#what-do-you-want-to-learn-about-the-weather",
-    "title": "Lesson Day 2 Analysis",
+    "title": "Data Wrangling",
     "section": "What do you want to learn about the weather?",
     "text": "What do you want to learn about the weather?\nDream up a question and answer it. Maybe import your own state’s data and find something there. The earliest snowfall. The snowiest month on average. The first freeze. The last freeze. Or more challenge, the average day of the last freeze (i.e., when can I plan my garden!)."
   },
@@ -249,7 +249,7 @@
     "href": "practice-day1-clean.html#setup",
     "title": "Practice Day 1",
     "section": "Setup",
-    "text": "Setup\nAdd the entire code block for libraries."
+    "text": "Setup\nAdd the entire code block for libraries.\n\nlibrary(tidyverse)\nlibrary(janitor)"
   },
   {
     "objectID": "practice-day1-clean.html#import",
@@ -424,7 +424,7 @@
     "href": "lesson-day1-01-intro.html#download-part-1-course-materials",
     "title": "Introduction",
     "section": "Download Part 1 Course materials",
-    "text": "Download Part 1 Course materials\nNow we’ll download the course materials for the first couple of days of class. They are stored on Github.\n\nGo to this link: github.com/critmcdonald/chjr-part1.\nClick on the big green Code button and choose Download zip\nFind the downloaded file and unzip the folder. Mac: Double-click on it. PC directions here\nMove the unzipped folder to your Desktop (or some other place you can find it).\nGo back to RStudio and go to File &gt; Open Project. Go find your folder and open the file chjr-part1.Rproj."
+    "text": "Download Part 1 Course materials\nNow we’ll download the course materials for the first couple of days of class. They are stored on Github.\n\nGo to this link: github.com/utdata/chjr-part1.\nClick on the big green Code button and choose Download zip\nFind the downloaded file and unzip the folder. Mac: Double-click on it. PC directions here\nMove the unzipped folder to your Desktop (or some other place you can find it).\nGo back to RStudio and go to File &gt; Open Project. Go find your folder and open the file chjr-part1.Rproj."
   },
   {
     "objectID": "lesson-day1-01-intro.html#go-to-the-next-chapter",
@@ -438,14 +438,42 @@
     "href": "resources/projects.html",
     "title": "Managing a project",
     "section": "",
-    "text": "Some tips and demos about working with projects."
+    "text": "Using RStudio projects make it straightforward to collect related work into its own folder. All your data, notebooks and related documents can be stored together. It saves you from some R-related hassles of setting working directories.\nWith the addition of Quarto, you can turn your notebooks into readable documents for others, including your future self. While you don’t have to publish your work, it makes it easy to do so using Quarto Pub, or Github if you are already using source control.\nMy favorite default configuration for projects is the Quarto Website. With one extra configuration file you can tie all your notebooks together into a linked website. There are other bells and whistles, but that’s the gist.\nIn the video below, I go through the process of creating and configuring a Quarto Website. It’s not perfect, but you may find it useful.\n\n\nSome things I do are for personal preference, but they are usually based on some logic. One thing I can say for sure: The more consistent you are setting up your projects, easier it is for your future self and collaborators.\n\n\n\n\nI create two data folders: data-raw for my original data, and data-processed for anything I generate. I don’t want to write over original data, which should not be changed. It doesn’t stop me from making mistakes, but I’m less likely to make them.\nI do my data cleaning in its own notebook, then export the cleaned data as an RDS file that preserves data types and the like. (I start any analysis from this cleaned data.) This helps avoid repetition in cleaning the same data over and over, and possibly in different ways. It’s not unusual for me to be doing an analysis and realize I need to back into my cleaning notebook and fix or add something. I just do that and re-run everything so all future notebooks have the fix.\nI name my notebooks in the order they should be run, like 01-cleaning.qmd needs to be run before 02-analysis.qmd. This might be overkill, but it is what I do. Also, when I export data from a notebook, I include that number or notebook name so I know where it came from.\nI sometimes have a resources folder where I might store data dictionaries or documents related to my source data.\nI use the index.qmd file of the Quarto website as my “about this project” page. I explain there what the project is about and link to the source of my data. Depending on the need I might have notes about how I downloaded or processed the data (though that might be in my cleaning notebook.) I include links to stories born from the project once they publish.\nI don’t use the default about.qmd page created with a Quarto website. I just rename that as my cleaning notebook.\n\n\n\n\n\nThe Quarto Website documentation is pretty good. It explains different configurations and navigation options you can use in the _quarto.yml file.\nOne thing I always add to _quarto.yml is df-print: paged. It makes your table output much nicer on the rendered pages. You can read about it here.\n\n\n\n\nhttps://quartopub.com/ is a website where you can publish your notebooks for free through a simple command. You have to install the Quarto CLI and use the Terminal to push the files, but it is just a simple two-word command.\n\n\n\nIf you use git and Github, you can take advantage of Github Pages to publish rendered pages along with your project.\n\nYou can update the _quarto.yml to change the output directory to use docs. This allows you to use Github Pages to publish your html for free right with your code. Directions are here.\nIf you use gitignore.io to create your gitignore file, be sure to comment out or remove the line about the docs folder. By default that configuration excludes pushing docs, but you want it if you are using Github Pages.\nYou can using Quarto includes to pull your standard README.md into your index page. I guild a regular README and then in my index I put one line: {{&lt; include README.md &gt;}}. This way your README works on Github, but also serves as the index of your project website. You just can’t use fancy Quarto stuff like callouts, but regular Markdown is fine."
   },
   {
-    "objectID": "resources/projects.html#goals",
-    "href": "resources/projects.html#goals",
+    "objectID": "resources/projects.html#preference-vs-convention",
+    "href": "resources/projects.html#preference-vs-convention",
     "title": "Managing a project",
-    "section": "Goals",
-    "text": "Goals\n\nWhy projects are important\nHow to build a Quarto project\n\nAbout the _quarto.yml file.\n\nHow to build a Quarto website\n\nRenaming pages\nadding df-print\nWorking with navigation\nPublishing to Quarto Pub\n\nIf you use Github"
+    "section": "",
+    "text": "Some things I do are for personal preference, but they are usually based on some logic. One thing I can say for sure: The more consistent you are setting up your projects, easier it is for your future self and collaborators."
+  },
+  {
+    "objectID": "resources/projects.html#file-and-folder-management",
+    "href": "resources/projects.html#file-and-folder-management",
+    "title": "Managing a project",
+    "section": "",
+    "text": "I create two data folders: data-raw for my original data, and data-processed for anything I generate. I don’t want to write over original data, which should not be changed. It doesn’t stop me from making mistakes, but I’m less likely to make them.\nI do my data cleaning in its own notebook, then export the cleaned data as an RDS file that preserves data types and the like. (I start any analysis from this cleaned data.) This helps avoid repetition in cleaning the same data over and over, and possibly in different ways. It’s not unusual for me to be doing an analysis and realize I need to back into my cleaning notebook and fix or add something. I just do that and re-run everything so all future notebooks have the fix.\nI name my notebooks in the order they should be run, like 01-cleaning.qmd needs to be run before 02-analysis.qmd. This might be overkill, but it is what I do. Also, when I export data from a notebook, I include that number or notebook name so I know where it came from.\nI sometimes have a resources folder where I might store data dictionaries or documents related to my source data.\nI use the index.qmd file of the Quarto website as my “about this project” page. I explain there what the project is about and link to the source of my data. Depending on the need I might have notes about how I downloaded or processed the data (though that might be in my cleaning notebook.) I include links to stories born from the project once they publish.\nI don’t use the default about.qmd page created with a Quarto website. I just rename that as my cleaning notebook."
+  },
+  {
+    "objectID": "resources/projects.html#quarto-yaml-configurations",
+    "href": "resources/projects.html#quarto-yaml-configurations",
+    "title": "Managing a project",
+    "section": "",
+    "text": "The Quarto Website documentation is pretty good. It explains different configurations and navigation options you can use in the _quarto.yml file.\nOne thing I always add to _quarto.yml is df-print: paged. It makes your table output much nicer on the rendered pages. You can read about it here."
+  },
+  {
+    "objectID": "resources/projects.html#quarto-pub",
+    "href": "resources/projects.html#quarto-pub",
+    "title": "Managing a project",
+    "section": "",
+    "text": "https://quartopub.com/ is a website where you can publish your notebooks for free through a simple command. You have to install the Quarto CLI and use the Terminal to push the files, but it is just a simple two-word command."
+  },
+  {
+    "objectID": "resources/projects.html#github-specific-tricks",
+    "href": "resources/projects.html#github-specific-tricks",
+    "title": "Managing a project",
+    "section": "",
+    "text": "If you use git and Github, you can take advantage of Github Pages to publish rendered pages along with your project.\n\nYou can update the _quarto.yml to change the output directory to use docs. This allows you to use Github Pages to publish your html for free right with your code. Directions are here.\nIf you use gitignore.io to create your gitignore file, be sure to comment out or remove the line about the docs folder. By default that configuration excludes pushing docs, but you want it if you are using Github Pages.\nYou can using Quarto includes to pull your standard README.md into your index page. I guild a regular README and then in my index I put one line: {{&lt; include README.md &gt;}}. This way your README works on Github, but also serves as the index of your project website. You just can’t use fancy Quarto stuff like callouts, but regular Markdown is fine."
   },
   {
     "objectID": "resources/wx-testing.html",
@@ -754,12 +782,5 @@
     "title": "Solutions Day 2",
     "section": "Challenge: Earliest 100+ day each city",
     "text": "Challenge: Earliest 100+ day each city\nFor each city, find the earliest day of a year in which it reached 100 degrees.\n\ntx_clean |&gt; \n  filter(tmax &gt;= 100) |&gt; \n  group_by(city) |&gt; \n  slice_min(yd) |&gt; \n  select(city, date, tmax)"
-  },
-  {
-    "objectID": "resources/projects.html#things-to-consider",
-    "href": "resources/projects.html#things-to-consider",
-    "title": "Managing a project",
-    "section": "Things to consider",
-    "text": "Things to consider"
   }
 ]
